@@ -15,8 +15,10 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -24,6 +26,67 @@ body {
   color: #e4e4e7;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  text-wrap: pretty;
+}
+
+/* Consistent focus indicator for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip link — only visible when focused */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+  padding: 0.625rem 1rem;
+  background: var(--accent);
+  color: #020617;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.5);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: none;
+}
+
+/* Back-to-top button */
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  height: 2.75rem;
+  width: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: rgba(13, 14, 18, 0.85);
+  color: #6ee7b7;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.4);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .back-to-top {
+    right: 2rem;
+    bottom: 2rem;
+  }
 }
 
 ::selection {
@@ -57,7 +120,7 @@ body {
   }
 
   .section-y {
-    @apply py-20 md:py-28;
+    @apply py-12 md:py-16;
   }
 
   .container-max {
@@ -89,16 +152,25 @@ body {
   }
 
   .section-heading {
-    @apply mb-3 inline-flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-accent-400;
+    @apply mb-3 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-accent-400 sm:text-sm;
+  }
+
+  .section-heading-center {
+    @apply mb-3 flex items-center justify-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-accent-400 sm:text-sm;
   }
 
   .section-title {
-    @apply mb-4 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl md:text-5xl;
+    @apply mb-4 text-3xl font-bold leading-tight tracking-tight text-zinc-100 sm:text-4xl md:text-[2.5rem];
   }
 
   .section-subtitle {
-    @apply max-w-2xl text-base text-zinc-400 md:text-lg;
+    @apply max-w-2xl text-pretty text-base leading-relaxed text-zinc-400 md:text-lg;
   }
+}
+
+/* Section transitions: subtle gradient divider between sections */
+section + section {
+  position: relative;
 }
 
 @layer utilities {

@@ -3,22 +3,26 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#domains", label: "Domains" },
-  { href: "#projects", label: "Projects" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
+  { href: "/journey", label: "Journey", section: "journey" },
+  { href: "/#experience", label: "Experience", section: "experience" },
+  { href: "/projects", label: "Projects", section: "projects" },
+  { href: "/#about", label: "About", section: "about" },
+  { href: "/#skills", label: "Skills", section: "skills" },
+  { href: "/#domains", label: "Domains", section: "domains" },
+  { href: "/#education", label: "Education", section: "education" },
+  { href: "/#contact", label: "Contact", section: "contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -28,11 +32,16 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (pathname !== "/") {
+      setActive("");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActive(`#${entry.target.id}`);
+            setActive(entry.target.id);
           }
         });
       },
@@ -40,12 +49,21 @@ export default function Navbar() {
     );
 
     links.forEach((l) => {
-      const el = document.querySelector(l.href);
-      if (el) observer.observe(el);
+      if (l.href.startsWith("/#")) {
+        const el = document.getElementById(l.section);
+        if (el) observer.observe(el);
+      }
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
+
+  const isActive = (link: (typeof links)[number]) => {
+    if (link.href.startsWith("/") && !link.href.startsWith("/#")) {
+      return pathname === link.href;
+    }
+    return pathname === "/" && active === link.section;
+  };
 
   return (
     <header
@@ -57,8 +75,8 @@ export default function Navbar() {
       )}
     >
       <nav className="container-max section-padding flex h-16 items-center justify-between md:h-20">
-        <a
-          href="#home"
+        <Link
+          href="/"
           className="group flex items-center gap-2 font-semibold text-zinc-100"
         >
           <span className="grid h-9 w-9 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-400 transition-all group-hover:bg-accent/20 group-hover:shadow-glow-accent">
@@ -67,46 +85,46 @@ export default function Navbar() {
           <span className="hidden font-mono text-sm tracking-wide sm:inline">
             sabuj<span className="text-accent-400">.qa</span>
           </span>
-        </a>
+        </Link>
 
-        <ul className="hidden items-center gap-1 lg:flex">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className={clsx(
-                  "relative rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  active === l.href
-                    ? "text-accent-300"
-                    : "text-zinc-400 hover:text-zinc-100"
-                )}
-              >
-                {l.label}
-                {active === l.href && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-accent"
-                  />
-                )}
-              </a>
-            </li>
-          ))}
+        <ul className="hidden items-center gap-1 xl:flex">
+          {links.map((l) => {
+            const active = isActive(l);
+            return (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className={clsx(
+                    "relative rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                    active
+                      ? "text-accent-300"
+                      : "text-zinc-400 hover:text-zinc-100"
+                  )}
+                >
+                  {l.label}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-accent"
+                    />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
-        <div className="hidden lg:block">
-          <a
-            href="#contact"
-            className="btn-primary"
-          >
+        <div className="hidden xl:block">
+          <Link href="/#contact" className="btn-primary">
             Hire Me
-          </a>
+          </Link>
         </div>
 
         <button
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface text-zinc-300 lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface text-zinc-300 xl:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -120,28 +138,28 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="border-t border-border/60 bg-background/95 backdrop-blur-xl lg:hidden"
+            className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border/60 bg-background/95 backdrop-blur-xl xl:hidden"
           >
             <ul className="section-padding py-4">
               {links.map((l) => (
                 <li key={l.href}>
-                  <a
+                  <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-3 text-sm font-medium text-zinc-300 transition-colors hover:bg-surface hover:text-accent-300"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li className="pt-2">
-                <a
-                  href="#contact"
+                <Link
+                  href="/#contact"
                   onClick={() => setOpen(false)}
                   className="btn-primary w-full"
                 >
                   Hire Me
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>

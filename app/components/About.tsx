@@ -34,17 +34,25 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="section-y relative">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="section-y relative"
+    >
       <div className="container-max section-padding">
         <Reveal>
-          <span className="section-heading">
-            <span className="h-px w-8 bg-accent" /> About
-          </span>
-          <h2 className="section-title">Quality is not an afterthought.</h2>
-          <p className="section-subtitle">{personal.about}</p>
+          <p className="section-heading">
+            <span aria-hidden className="h-px w-8 bg-accent" /> About
+          </p>
+          <h2 id="about-heading" className="section-title">
+            Quality is not an afterthought.
+          </h2>
+          <p className="section-subtitle !max-w-none text-left sm:text-justify md:text-left">
+            {personal.about}
+          </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((h, i) => (
             <Reveal key={h.title} delay={i * 0.08}>
               <div className="card card-hover h-full p-6">

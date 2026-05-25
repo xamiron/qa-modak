@@ -6,20 +6,26 @@ import { education } from "../data";
 
 export default function Education() {
   return (
-    <section id="education" className="section-y relative">
+    <section
+      id="education"
+      aria-labelledby="education-heading"
+      className="section-y relative"
+    >
       <div className="container-max section-padding">
         <Reveal>
-          <span className="section-heading">
-            <span className="h-px w-8 bg-accent" /> Education
-          </span>
-          <h2 className="section-title">Academic background</h2>
+          <p className="section-heading">
+            <span aria-hidden className="h-px w-8 bg-accent" /> Education
+          </p>
+          <h2 id="education-heading" className="section-title">
+            Academic background
+          </h2>
           <p className="section-subtitle">
             Formal IT education that grounds my testing and security work in
             fundamentals.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
           {education.map((e, i) => (
             <Reveal key={e.school} delay={i * 0.08}>
               <div className="card card-hover h-full p-6">

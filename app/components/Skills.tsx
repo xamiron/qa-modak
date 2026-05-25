@@ -13,20 +13,26 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-y relative">
+    <section
+      id="skills"
+      aria-labelledby="skills-heading"
+      className="section-y relative"
+    >
       <div className="container-max section-padding">
         <Reveal>
-          <span className="section-heading">
-            <span className="h-px w-8 bg-accent" /> Skills
-          </span>
-          <h2 className="section-title">Toolbox & technical strengths</h2>
+          <p className="section-heading">
+            <span aria-hidden className="h-px w-8 bg-accent" /> Skills
+          </p>
+          <h2 id="skills-heading" className="section-title">
+            Toolbox &amp; technical strengths
+          </h2>
           <p className="section-subtitle">
             A balanced mix of manual QA discipline, automation engineering, and
             offensive security skills.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
           {skillGroups.map((group, i) => {
             const Icon = iconMap[group.icon] ?? ShieldCheck;
             return (

@@ -6,24 +6,30 @@ import { achievements, certifications, publication } from "../data";
 
 export default function Recognition() {
   return (
-    <section id="recognition" className="section-y relative">
-      <div className="pointer-events-none absolute inset-0 -z-10">
+    <section
+      id="recognition"
+      aria-labelledby="recognition-heading"
+      className="section-y relative"
+    >
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/4 top-10 h-72 w-72 rounded-full bg-accent/5 blur-[120px]" />
       </div>
 
       <div className="container-max section-padding">
         <Reveal>
-          <span className="section-heading">
-            <span className="h-px w-8 bg-accent" /> Recognition
-          </span>
-          <h2 className="section-title">Certifications, awards & publications</h2>
+          <p className="section-heading">
+            <span aria-hidden className="h-px w-8 bg-accent" /> Recognition
+          </p>
+          <h2 id="recognition-heading" className="section-title">
+            Certifications, awards &amp; publications
+          </h2>
           <p className="section-subtitle">
             Continuously learning — and competing — in QA, API testing, and
             cyber security.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
           <Reveal>
             <div className="card card-hover h-full p-6">
               <div className="mb-5 flex items-center gap-3">

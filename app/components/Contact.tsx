@@ -27,8 +27,12 @@ const contactItems = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-y relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 -z-10">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="section-y relative overflow-hidden"
+    >
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-radial-fade blur-3xl" />
       </div>
 
@@ -42,10 +46,10 @@ export default function Contact() {
 
             <div className="grid items-center gap-10 lg:grid-cols-2">
               <div>
-                <span className="section-heading">
-                  <span className="h-px w-8 bg-accent" /> Contact
-                </span>
-                <h2 className="section-title">
+                <p className="section-heading">
+                  <span aria-hidden className="h-px w-8 bg-accent" /> Contact
+                </p>
+                <h2 id="contact-heading" className="section-title">
                   Let&apos;s build{" "}
                   <span className="gradient-text">reliable software</span>{" "}
                   together.
@@ -79,15 +83,15 @@ export default function Contact() {
               <ul className="space-y-3">
                 {contactItems.map((item) => {
                   const Inner = (
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4">
                       <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
                         <item.icon className="h-5 w-5" />
                       </div>
-                      <div className="min-w-0">
+                      <div className="min-w-0 flex-1">
                         <p className="text-xs uppercase tracking-wider text-zinc-500">
                           {item.label}
                         </p>
-                        <p className="truncate text-sm font-medium text-zinc-200">
+                        <p className="break-all text-xs font-medium text-zinc-200 sm:break-words sm:text-sm">
                           {item.value}
                         </p>
                       </div>
