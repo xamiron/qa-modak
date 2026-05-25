@@ -1,0 +1,111 @@
+"use client";
+
+import { Award, BadgeCheck, BookOpen, Trophy } from "lucide-react";
+import Reveal from "./Reveal";
+import { achievements, certifications, publication } from "../data";
+
+export default function Recognition() {
+  return (
+    <section id="recognition" className="section-y relative">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/4 top-10 h-72 w-72 rounded-full bg-accent/5 blur-[120px]" />
+      </div>
+
+      <div className="container-max section-padding">
+        <Reveal>
+          <span className="section-heading">
+            <span className="h-px w-8 bg-accent" /> Recognition
+          </span>
+          <h2 className="section-title">Certifications, awards & publications</h2>
+          <p className="section-subtitle">
+            Continuously learning — and competing — in QA, API testing, and
+            cyber security.
+          </p>
+        </Reveal>
+
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          <Reveal>
+            <div className="card card-hover h-full p-6">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                  <BadgeCheck className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-100">
+                  Certifications
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                {certifications.map((c) => (
+                  <li
+                    key={c.name}
+                    className="flex flex-col gap-0.5 rounded-lg border border-border/60 bg-surface/40 p-3"
+                  >
+                    <span className="text-sm font-medium text-zinc-200">
+                      {c.name}
+                    </span>
+                    <span className="text-xs text-zinc-500">{c.issuer}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="card card-hover h-full p-6">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                  <Trophy className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-100">
+                  Achievements
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                {achievements.map((a) => (
+                  <li
+                    key={a.title}
+                    className="rounded-lg border border-border/60 bg-surface/40 p-3"
+                  >
+                    <div className="flex items-start gap-2">
+                      <Award className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-400" />
+                      <div>
+                        <p className="text-sm font-medium text-zinc-200">
+                          {a.title}
+                        </p>
+                        <p className="mt-0.5 text-xs text-zinc-500">
+                          {a.venue} · {a.year}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="card card-hover h-full p-6">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                  <BookOpen className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-100">
+                  Publication
+                </h3>
+              </div>
+              <div className="rounded-lg border border-border/60 bg-surface/40 p-3">
+                <p className="text-sm font-medium leading-relaxed text-zinc-200">
+                  {publication.title}
+                </p>
+                <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-[11px] font-medium text-accent-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                  {publication.status}
+                </span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}

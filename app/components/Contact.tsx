@@ -1,0 +1,142 @@
+"use client";
+
+import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import Reveal from "./Reveal";
+import { personal } from "../data";
+
+const contactItems = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: personal.email,
+    href: `mailto:${personal.email}`,
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: personal.phone,
+    href: `tel:${personal.phone.replace(/\s|-|\(|\)/g, "")}`,
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: personal.location,
+    href: null,
+  },
+];
+
+export default function Contact() {
+  return (
+    <section id="contact" className="section-y relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-radial-fade blur-3xl" />
+      </div>
+
+      <div className="container-max section-padding">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-8 backdrop-blur-md md:p-12 lg:p-16">
+            <div
+              aria-hidden
+              className="absolute inset-0 -z-10 bg-grid opacity-30 mask-fade-b"
+            />
+
+            <div className="grid items-center gap-10 lg:grid-cols-2">
+              <div>
+                <span className="section-heading">
+                  <span className="h-px w-8 bg-accent" /> Contact
+                </span>
+                <h2 className="section-title">
+                  Let&apos;s build{" "}
+                  <span className="gradient-text">reliable software</span>{" "}
+                  together.
+                </h2>
+                <p className="section-subtitle">
+                  Have a product that needs serious QA, automation, or security
+                  testing? I&apos;m open to full-time roles, contract work, and
+                  consulting engagements.
+                </p>
+
+                <div className="mt-7 flex flex-wrap items-center gap-3">
+                  <a
+                    href={`mailto:${personal.email}`}
+                    className="btn-primary"
+                  >
+                    <Send className="h-4 w-4" />
+                    Send a message
+                  </a>
+                  <a
+                    href={personal.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-secondary"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                    Connect on LinkedIn
+                  </a>
+                </div>
+              </div>
+
+              <ul className="space-y-3">
+                {contactItems.map((item) => {
+                  const Inner = (
+                    <div className="flex items-center gap-4">
+                      <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                        <item.icon className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-xs uppercase tracking-wider text-zinc-500">
+                          {item.label}
+                        </p>
+                        <p className="truncate text-sm font-medium text-zinc-200">
+                          {item.value}
+                        </p>
+                      </div>
+                    </div>
+                  );
+
+                  return (
+                    <li key={item.label}>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="block rounded-xl border border-border bg-surface/60 p-4 transition-all hover:border-accent/40 hover:bg-surface-2"
+                        >
+                          {Inner}
+                        </a>
+                      ) : (
+                        <div className="block rounded-xl border border-border bg-surface/60 p-4">
+                          {Inner}
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+
+                <li className="flex items-center gap-3 pt-2">
+                  <a
+                    href={personal.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="GitHub"
+                    className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-surface/60 text-zinc-300 transition-all hover:border-accent/50 hover:text-accent-300"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                  <a
+                    href={personal.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="LinkedIn"
+                    className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-surface/60 text-zinc-300 transition-all hover:border-accent/50 hover:text-accent-300"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
