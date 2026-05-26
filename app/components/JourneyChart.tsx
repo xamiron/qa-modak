@@ -198,7 +198,7 @@ export default function JourneyChart() {
         </g>
 
         {/* Y-axis labels (subtle markers) — larger font for mobile readability */}
-        <g className="fill-zinc-600 font-mono" fontSize="16">
+        <g className="fill-zinc-600 font-mono" fontSize="22">
           {[
             { v: 10, label: "Peak" },
             { v: 5, label: "Mid" },
@@ -207,7 +207,7 @@ export default function JourneyChart() {
             <text
               key={label}
               x={PAD_L - 10}
-              y={yScale(v) + 5}
+              y={yScale(v) + 7}
               textAnchor="end"
             >
               {label}
@@ -215,13 +215,13 @@ export default function JourneyChart() {
           ))}
         </g>
 
-        {/* X-axis years — larger font so they render legibly when SVG scales down */}
-        <g className="fill-zinc-400 font-mono" fontSize="20">
+        {/* X-axis years — larger font so they render legibly when SVG scales down on mobile */}
+        <g className="fill-zinc-400 font-mono" fontSize="26">
           {data.map((d) => (
             <text
               key={d.year}
               x={xScale(d.year)}
-              y={VIEWBOX_H - PAD_B + 30}
+              y={VIEWBOX_H - PAD_B + 34}
               textAnchor="middle"
             >
               {d.year}
@@ -258,7 +258,30 @@ export default function JourneyChart() {
           const isDip = p.mood === "down";
           const dotColor = isDip ? "#fbbf24" : isPeak ? "#34d399" : "#a1a1aa";
           const labelAbove = p.level >= 6;
-          const labelY = labelAbove ? p.y - 14 : p.y + 22;
+
+          // Stagger consecutive same-side labels so adjacent ones don't
+          // collide horizontally — alternate between "close to dot" and
+          // "further from dot" along each run.
+          let runIndex = 0;
+          for (let j = i - 1; j >= 0; j--) {
+            const prevAbove = points[j].level >= 6;
+            if (prevAbove === labelAbove) runIndex++;
+            else break;
+          }
+          const isFar = runIndex % 2 === 1;
+          const closeOffset = labelAbove ? -16 : 24;
+          const farOffset = labelAbove ? -34 : 40;
+          const labelY = p.y + (isFar ? farOffset : closeOffset);
+
+          // Anchor the first label to its left edge and the last to its
+          // right edge so neither gets clipped by the SVG viewport.
+          const isFirst = i === 0;
+          const isLast = i === points.length - 1;
+          const anchor: "start" | "middle" | "end" = isFirst
+            ? "start"
+            : isLast
+            ? "end"
+            : "middle";
 
           return (
             <motion.g
@@ -297,9 +320,9 @@ export default function JourneyChart() {
               <text
                 x={p.x}
                 y={labelY}
-                textAnchor="middle"
+                textAnchor={anchor}
                 className="hidden fill-zinc-200 font-mono sm:block"
-                fontSize="14"
+                fontSize="13"
               >
                 {p.label}
               </text>

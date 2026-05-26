@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Briefcase, Layers, Sparkles } from "lucide-react";
+import { Briefcase, Layers, Sparkles } from "lucide-react";
 import BackToTop from "../components/BackToTop";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -53,14 +53,6 @@ export default function ProjectsPage() {
 
           <div className="container-max section-padding">
             <Reveal>
-              <Link
-                href="/"
-                className="mb-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-zinc-500 transition-colors hover:text-accent-300"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" />
-                Back to Home
-              </Link>
-
               <p className="section-heading">
                 <span aria-hidden className="h-px w-8 bg-accent" /> Project
                 Catalogue

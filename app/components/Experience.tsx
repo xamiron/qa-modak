@@ -9,7 +9,7 @@ export default function Experience() {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="section-y relative"
+      className="section-y relative overflow-hidden"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-20 h-72 w-[700px] -translate-x-1/2 rounded-full bg-accent/5 blur-[120px]" />

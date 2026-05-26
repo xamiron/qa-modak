@@ -26,7 +26,7 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Introduction"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-24 md:pt-28"
+      className="relative flex min-h-screen min-h-[100svh] items-center overflow-hidden pt-24 md:pt-28"
     >
       {/* Decorative background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -60,7 +60,7 @@ export default function Hero() {
           </div>
           <span
             aria-label="Online"
-            className="absolute bottom-1 right-1 grid h-6 w-6 place-items-center rounded-full border-2 border-background bg-background"
+            className="absolute bottom-2 right-2 grid h-6 w-6 place-items-center rounded-full border-[3px] border-background bg-background sm:bottom-2.5 sm:right-2.5"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-accent opacity-75" />
@@ -92,15 +92,16 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           variants={fadeUp}
-          className="text-balance text-4xl font-bold leading-[1.05] tracking-tight text-zinc-50 sm:text-5xl md:text-6xl lg:text-7xl"
+          className="text-balance text-[2rem] font-bold leading-[1.1] tracking-tight text-zinc-50 sm:text-5xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
         >
-          Sabuj Kumar <span className="gradient-text">Modak.</span>
+          Sabuj Kumar{" "}
+          <span className="gradient-text inline-block pb-1">Modak.</span>
         </motion.h1>
 
         {/* Description */}
         <motion.p
           variants={fadeUp}
-          className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-400 md:text-lg"
+          className="mt-6 max-w-xl text-pretty text-[15px] leading-7 text-zinc-400 sm:mt-7 sm:text-base sm:leading-8 md:text-lg md:leading-relaxed"
         >
           Helping product teams ship reliable, secure software across{" "}
           <span className="text-zinc-200">fintech</span>,{" "}
@@ -127,7 +128,7 @@ export default function Hero() {
         {/* Social row */}
         <motion.ul
           variants={fadeUp}
-          className="mt-8 flex items-center justify-center gap-2"
+          className="mt-8 flex w-full items-center justify-center gap-2.5"
         >
           <li>
             <a

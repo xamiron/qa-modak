@@ -163,6 +163,7 @@ export const projectCategories = [
   "FinTech",
   "Mobile",
   "Web",
+  "ERP",
   "Automation",
   "API & Security",
 ] as const;
@@ -194,6 +195,24 @@ export const projects: {
     tags: ["FinTech", "UI/UX", "Functional Testing"],
     categories: ["FinTech", "Web"],
     link: "https://www.selector.bracbank.com/en",
+  },
+  {
+    title: "Nagad Platform",
+    org: "Singularity Limited",
+    description:
+      "Conducted User Acceptance Testing (UAT) and JMeter-based load testing on Nagad's consumer-facing website — Bangladesh's leading mobile financial services platform. Validated transactional flows, offers, and merchant pages for stability under concurrent traffic across desktop and mobile.",
+    tags: ["FinTech", "UAT", "Load Testing", "JMeter"],
+    categories: ["FinTech", "Web"],
+    link: "https://nagad.com.bd/",
+  },
+  {
+    title: "Leads Management System (LeadsBox)",
+    org: "Singularity Limited",
+    description:
+      "Owned end-to-end QA for LeadsBox — a sales lead management ERP. Drove requirements analysis, test case design, functional QA, and User Acceptance Testing (UAT) across the full module suite to ensure release readiness.",
+    tags: ["ERP", "Requirements Analysis", "UAT", "Functional QA"],
+    categories: ["ERP", "Web"],
+    link: "https://leadsbox.io/",
   },
   {
     title: "B Charge — Smart EV Charging App",

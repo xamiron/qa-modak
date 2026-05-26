@@ -41,7 +41,7 @@ export default function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="section-y relative"
+      className="section-y relative overflow-hidden"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/4 top-1/3 h-72 w-72 rounded-full bg-accent/5 blur-[120px]" />

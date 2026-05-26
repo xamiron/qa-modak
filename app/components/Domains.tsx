@@ -26,7 +26,7 @@ export default function Domains() {
     <section
       id="domains"
       aria-labelledby="domains-heading"
-      className="section-y relative"
+      className="section-y relative overflow-hidden"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-cyan-glow/5 blur-[120px]" />

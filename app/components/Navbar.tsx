@@ -79,7 +79,7 @@ export default function Navbar() {
           href="/"
           className="group flex items-center gap-2 font-semibold text-zinc-100"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-400 transition-all group-hover:bg-accent/20 group-hover:shadow-glow-accent">
+          <span className="grid h-9 w-9 place-items-center rounded-lg border border-accent/50 bg-accent/15 text-accent-300 backdrop-blur-md transition-all group-hover:bg-accent/25 group-hover:shadow-glow-accent">
             <ShieldCheck className="h-5 w-5" />
           </span>
           <span className="hidden font-mono text-sm tracking-wide sm:inline">
@@ -124,7 +124,7 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface text-zinc-300 xl:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-border/80 bg-surface/90 text-zinc-100 backdrop-blur-md transition-colors hover:border-accent/40 hover:text-accent-300 xl:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

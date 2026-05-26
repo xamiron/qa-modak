@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Loader from "./components/Loader";
 import "./globals.css";
 import { siteConfig, siteUrl } from "./seo";
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
     title: siteConfig.shortTitle,
     description: siteConfig.shortDescription,
     creator: siteConfig.twitterHandle,
-    // Next.js auto-injects /twitter-image from app/twitter-image.tsx
+    // Next.js auto-injects /twitter-image from app/twitter-image.png
   },
   robots: {
     index: true,
@@ -75,8 +76,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // Icons (app/icon.tsx, app/apple-icon.tsx) and manifest (app/manifest.ts)
-  // are auto-linked by Next.js file conventions — no manual declaration needed.
+  // Icons (app/icon.tsx, app/apple-icon.tsx), OG image (app/opengraph-image.png),
+  // and Twitter card (app/twitter-image.png) are auto-linked by Next.js file
+  // conventions — no manual declaration needed.
 
   // To verify ownership with search engines, set these env vars in Vercel:
   //   NEXT_PUBLIC_GOOGLE_VERIFICATION, NEXT_PUBLIC_YANDEX_VERIFICATION,
@@ -187,6 +189,7 @@ export default function RootLayout({
         </a>
         <Loader />
         {children}
+        <Analytics />
       </body>
     </html>
   );

@@ -19,6 +19,11 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Prevent iOS Safari from auto-zooming text on landscape rotation */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Belt-and-braces guard against horizontal page scroll on mobile */
+  overflow-x: hidden;
 }
 
 body {
@@ -27,6 +32,8 @@ body {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   text-wrap: pretty;
+  /* Prevent long unbreakable strings (URLs, emails) from forcing overflow */
+  overflow-wrap: break-word;
 }
 
 /* Consistent focus indicator for keyboard users */

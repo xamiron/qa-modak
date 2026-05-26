@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const DURATION_MS = 1800;
+const DURATION_MS = 1100;
 
 export default function Loader() {
   const prefersReduced = useReducedMotion();
@@ -63,7 +63,7 @@ export default function Loader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[100] grid place-items-center bg-background px-5"
+          className="fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-background px-4 sm:px-5"
         >
           {/* Ambient background */}
           <div
@@ -82,21 +82,24 @@ export default function Loader() {
             className="relative w-full max-w-md overflow-hidden rounded-xl border border-border bg-surface shadow-2xl shadow-accent/5"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-border/60 bg-surface-2/60 px-4 py-2.5">
-              <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-3 border-b border-border/60 bg-surface-2/60 px-3 py-2.5 sm:px-4">
+              <div className="flex flex-shrink-0 items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-green-500/80" />
               </div>
-              <span className="font-mono text-[11px] text-zinc-500">
-                initializing_qa_profile.sh
+              <span className="flex-1 truncate text-center font-mono text-[10px] text-zinc-500 sm:text-[11px]">
+                <span className="sm:hidden">init.sh</span>
+                <span className="hidden sm:inline">
+                  initializing_qa_profile.sh
+                </span>
               </span>
-              <span aria-hidden className="w-10" />
+              <span aria-hidden className="w-6 flex-shrink-0 sm:w-10" />
             </div>
 
             {/* Body */}
-            <div className="space-y-4 px-5 py-5 font-mono text-sm sm:px-6 sm:py-6">
-              <p className="leading-relaxed text-zinc-200">
+            <div className="space-y-4 px-4 py-4 font-mono text-[13px] sm:px-6 sm:py-6 sm:text-sm">
+              <p className="break-all leading-relaxed text-zinc-200">
                 <span className="text-accent-400">root@qa:~$</span>{" "}
                 <span className="text-zinc-100">
                   ./initialize_portfolio.sh
@@ -108,12 +111,12 @@ export default function Loader() {
               </p>
 
               <div>
-                <p className="mb-2.5 flex items-center justify-between gap-3 text-cyan-glow">
-                  <span>
-                    Loading QA Engineer Profile
+                <p className="mb-2.5 flex items-center justify-between gap-3 text-[12px] text-cyan-glow sm:text-sm">
+                  <span className="truncate">
+                    Loading QA Profile
                     <span className="inline-block animate-pulse">...</span>
                   </span>
-                  <span className="text-[11px] tabular-nums text-zinc-500">
+                  <span className="flex-shrink-0 text-[11px] tabular-nums text-zinc-500">
                     {Math.floor(progress)}%
                   </span>
                 </p>
