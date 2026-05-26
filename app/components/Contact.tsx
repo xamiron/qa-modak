@@ -71,7 +71,7 @@ export default function Contact() {
                   <a
                     href={personal.linkedin}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="btn-secondary"
                   >
                     <Linkedin className="h-4 w-4" />
@@ -120,7 +120,7 @@ export default function Contact() {
                   <a
                     href={personal.github}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     aria-label="GitHub"
                     className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-surface/60 text-zinc-300 transition-all hover:border-accent/50 hover:text-accent-300"
                   >
@@ -129,7 +129,7 @@ export default function Contact() {
                   <a
                     href={personal.linkedin}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     aria-label="LinkedIn"
                     className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-surface/60 text-zinc-300 transition-all hover:border-accent/50 hover:text-accent-300"
                   >

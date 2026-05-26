@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  ArrowLeft,
   ArrowRight,
   Briefcase,
   Compass,
@@ -25,9 +24,9 @@ import ScrollProgress from "../components/ScrollProgress";
 import { domains, stats } from "../data";
 
 export const metadata: Metadata = {
-  title: "Journey — Who I Am",
+  title: "Journey | Who I Am",
   description:
-    "The story behind Sabuj Modak — who I am, the highs and lows of the journey, and the domains I've helped test, automate, and harden.",
+    "The story behind Sabuj Modak: who I am, the highs and lows of the journey, and the domains I've helped test, automate, and harden.",
   alternates: { canonical: "/journey" },
 };
 
@@ -78,7 +77,7 @@ const milestones = [
   {
     year: "2019",
     title: "The Spark",
-    subtitle: "Higher Secondary — Bogura Govt. College",
+    subtitle: "Higher Secondary, Bogura Govt. College",
     description:
       "Curiosity for how things break. Spent late nights breaking and fixing software, and found I cared more about why systems fail than just making them work.",
     icon: Sparkles,
@@ -104,7 +103,7 @@ const milestones = [
     title: "Software QA Engineer",
     subtitle: "Singularity Limited",
     description:
-      "Switched to Singularity to take on bigger ownership — banking, EV, and ERP products. Penetration testing, API testing, automation — shipping with confidence on production-critical platforms.",
+      "Switched to Singularity to take on bigger ownership across banking, EV, and ERP products. Penetration testing, API testing, and automation, shipping with confidence on production-critical platforms.",
     icon: Rocket,
   },
 ];
@@ -124,24 +123,16 @@ export default function JourneyPage() {
 
           <div className="container-max section-padding">
             <Reveal>
-              <Link
-                href="/"
-                className="mb-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-zinc-500 transition-colors hover:text-accent-300"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" />
-                Back to Home
-              </Link>
-
               <p className="section-heading">
                 <span aria-hidden className="h-px w-8 bg-accent" /> My Journey
               </p>
               <h1 className="section-title text-balance">
-                A QA story —{" "}
+                A QA story:{" "}
                 <span className="gradient-text">curious, careful, relentless.</span>
               </h1>
               <p className="section-subtitle !max-w-3xl text-pretty">
                 From late-night curiosity about how things break, to shipping
-                quality across banking, EV, and enterprise platforms — this is
+                quality across banking, EV, and enterprise platforms. This is
                 the story, the highs, the lows, and the domains it touched.
               </p>
             </Reveal>
@@ -170,11 +161,11 @@ export default function JourneyPage() {
                     My approach blends manual testing discipline with automation
                     engineering and an offensive security mindset. I think like
                     a user, test like a hacker, and ship with confidence. Every
-                    bug I find is a story about how a product can be better —
+                    bug I find is a story about how a product can be better,
                     and I love telling those stories clearly.
                   </p>
                   <p>
-                    Beyond the test cases, I&apos;m a continuous learner —
+                    Beyond the test cases, I&apos;m a continuous learner:
                     competing in CTFs, exploring new automation patterns, and
                     helping teams adopt quality as a habit rather than a phase.
                   </p>
@@ -208,7 +199,7 @@ export default function JourneyPage() {
           </div>
         </section>
 
-        {/* HIGHS & LOWS — animated journey arc */}
+        {/* HIGHS & LOWS: animated journey arc */}
         <section
           aria-labelledby="arc-heading"
           className="section-y relative overflow-hidden"
@@ -229,7 +220,7 @@ export default function JourneyPage() {
               <p className="section-subtitle !max-w-3xl">
                 Confidence and momentum from{" "}
                 <span className="text-zinc-200">2019</span> to{" "}
-                <span className="text-zinc-200">today</span> — the peaks I
+                <span className="text-zinc-200">today</span>. The peaks I
                 fought for and the dips that taught me the most.
               </p>
             </Reveal>
@@ -240,7 +231,7 @@ export default function JourneyPage() {
           </div>
         </section>
 
-        {/* DOMAINS — redesigned bento style */}
+        {/* DOMAINS: redesigned bento style */}
         <section
           aria-labelledby="domains-heading"
           className="section-y relative overflow-hidden"
@@ -261,7 +252,7 @@ export default function JourneyPage() {
               <p className="section-subtitle !max-w-3xl">
                 Practical domain knowledge across regulated, transactional, and
                 hardware-integrated products. Each industry sharpened a
-                different instinct — risk, scale, edge cases, or trust.
+                different instinct: risk, scale, edge cases, or trust.
               </p>
             </Reveal>
 
@@ -331,7 +322,7 @@ export default function JourneyPage() {
           </div>
         </section>
 
-        {/* TIMELINE — life journey concept */}
+        {/* TIMELINE: life journey concept */}
         <section
           aria-labelledby="timeline-heading"
           className="section-y relative"

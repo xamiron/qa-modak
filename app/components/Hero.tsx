@@ -51,7 +51,7 @@ export default function Hero() {
           <div className="relative h-32 w-32 overflow-hidden rounded-full border border-accent/40 bg-surface sm:h-36 sm:w-36">
             <Image
               src="/sabuj.png"
-              alt={`${personal.name} — Software QA Automation Engineer & Security Tester`}
+              alt={`${personal.name}, Software QA Automation Engineer & Security Tester`}
               fill
               priority
               sizes="144px"
@@ -106,7 +106,7 @@ export default function Hero() {
           Helping product teams ship reliable, secure software across{" "}
           <span className="text-zinc-200">fintech</span>,{" "}
           <span className="text-zinc-200">e-commerce</span>, and{" "}
-          <span className="text-zinc-200">EV mobility</span> — through
+          <span className="text-zinc-200">EV mobility</span> through
           functional, API, security testing, and Selenium automation.
         </motion.p>
 
@@ -134,7 +134,7 @@ export default function Hero() {
             <a
               href={personal.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="GitHub profile"
               className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-400 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
             >
@@ -145,7 +145,7 @@ export default function Hero() {
             <a
               href={personal.linkedin}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="LinkedIn profile"
               className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-400 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
             >

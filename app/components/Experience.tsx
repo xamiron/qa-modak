@@ -26,7 +26,7 @@ export default function Experience() {
           </h2>
           <p className="section-subtitle">
             Two years of full-cycle testing in fintech, enterprise, and mobile
-            products — from manual cases to security audits.
+            products, from manual cases to security audits.
           </p>
         </Reveal>
 

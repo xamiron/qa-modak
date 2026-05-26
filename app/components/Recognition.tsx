@@ -24,7 +24,7 @@ export default function Recognition() {
             Certifications, awards &amp; publications
           </h2>
           <p className="section-subtitle">
-            Continuously learning — and competing — in QA, API testing, and
+            Continuously learning and competing in QA, API testing, and
             cyber security.
           </p>
         </Reveal>
@@ -44,12 +44,12 @@ export default function Recognition() {
                 {certifications.map((c) => (
                   <li
                     key={c.name}
-                    className="flex flex-col gap-0.5 rounded-lg border border-border/60 bg-surface/40 p-3"
+                    className="card-inner flex flex-col gap-0.5 p-3"
                   >
                     <span className="text-sm font-medium text-zinc-200">
                       {c.name}
                     </span>
-                    <span className="text-xs text-zinc-500">{c.issuer}</span>
+                    <span className="text-xs text-zinc-400">{c.issuer}</span>
                   </li>
                 ))}
               </ul>
@@ -68,17 +68,14 @@ export default function Recognition() {
               </div>
               <ul className="space-y-3">
                 {achievements.map((a) => (
-                  <li
-                    key={a.title}
-                    className="rounded-lg border border-border/60 bg-surface/40 p-3"
-                  >
+                  <li key={a.title} className="card-inner p-3">
                     <div className="flex items-start gap-2">
-                      <Award className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-400" />
+                      <Award className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-300" />
                       <div>
                         <p className="text-sm font-medium text-zinc-200">
                           {a.title}
                         </p>
-                        <p className="mt-0.5 text-xs text-zinc-500">
+                        <p className="mt-0.5 text-xs text-zinc-400">
                           {a.venue} · {a.year}
                         </p>
                       </div>
@@ -99,7 +96,7 @@ export default function Recognition() {
                   Publication
                 </h3>
               </div>
-              <div className="rounded-lg border border-border/60 bg-surface/40 p-3">
+              <div className="card-inner p-3">
                 <p className="text-sm font-medium leading-relaxed text-zinc-200">
                   {publication.title}
                 </p>
@@ -120,7 +117,7 @@ export default function Recognition() {
                     <a
                       href={publication.abstractLink}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 rounded-full border border-border bg-surface/70 px-2.5 py-0.5 text-[11px] font-semibold text-zinc-200 transition-colors hover:border-accent/50 hover:text-accent-300"
                       aria-label="Read abstract of upcoming publication"
                     >

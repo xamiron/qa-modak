@@ -20,8 +20,8 @@ export default function ProjectCard({ project }: { project: Project }) {
     ? {
         href: project.link,
         target: "_blank",
-        rel: "noreferrer",
-        "aria-label": `${project.title} — open in new tab`,
+        rel: "noopener noreferrer",
+        "aria-label": `${project.title}, open in new tab`,
       }
     : {};
 

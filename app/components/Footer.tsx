@@ -30,14 +30,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-400">
+              <span className="grid h-8 w-8 place-items-center rounded-lg border border-accent/40 bg-accent/15 text-accent-300">
                 <ShieldCheck className="h-4 w-4" />
               </span>
               <span className="font-mono text-sm tracking-wide text-zinc-100">
                 sabuj<span className="text-accent-400">.qa</span>
               </span>
             </div>
-            <p className="max-w-xs text-sm leading-relaxed text-zinc-500">
+            <p className="max-w-xs text-sm leading-relaxed text-zinc-400">
               QA Engineer focused on quality, security, and automation. Open to
               new opportunities.
             </p>
@@ -72,7 +72,7 @@ export default function Footer() {
                 <a
                   href={personal.github}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   aria-label="GitHub"
                   className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-300 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
                 >
@@ -83,7 +83,7 @@ export default function Footer() {
                 <a
                   href={personal.linkedin}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-300 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
                 >
@@ -109,13 +109,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border/50 pt-6 text-xs text-zinc-500 sm:flex-row">
+        <div className="mt-8 border-t border-border/50 pt-6 text-center text-xs text-zinc-400">
           <p>
-            © {year} <span className="text-zinc-400">{personal.name}</span>.
+            © {year} <span className="text-zinc-200">{personal.name}</span>.
             All rights reserved.
-          </p>
-          <p className="font-mono uppercase tracking-[0.2em]">
-            Built with Next.js · Tailwind · Deployed on Vercel
           </p>
         </div>
       </div>

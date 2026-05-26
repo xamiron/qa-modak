@@ -35,7 +35,7 @@ export default function Projects() {
   const featuredIsLink = Boolean(featured.link);
   const FeaturedWrapper: React.ElementType = featuredIsLink ? "a" : "div";
   const featuredWrapperProps = featuredIsLink
-    ? { href: featured.link, target: "_blank", rel: "noreferrer" }
+    ? { href: featured.link, target: "_blank", rel: "noopener noreferrer" }
     : {};
 
   return (
@@ -59,7 +59,7 @@ export default function Projects() {
             Selected work
           </h2>
           <p className="section-subtitle">
-            Real platforms I&apos;ve helped ship and harden — from large banking
+            Real platforms I&apos;ve helped ship and harden, from large banking
             websites to mobile EV apps and automation suites.
           </p>
         </Reveal>

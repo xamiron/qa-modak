@@ -22,14 +22,14 @@ export const siteConfig = {
   name: "Sabuj Kumar Modak",
   fullName: "Sabuj Kumar Modak",
   role: "Software QA Engineer & Security Tester",
-  shortTitle: "Sabuj Kumar Modak — Software QA Engineer | Security Tester",
+  shortTitle: "Sabuj Kumar Modak | Software QA Engineer | Security Tester",
   longTitle:
-    "Sabuj Kumar Modak — Software QA Engineer | Security Tester | Selenium Automation",
+    "Sabuj Kumar Modak | Software QA Engineer | Security Tester | Selenium Automation",
   // Search-optimized (~160 chars): branded name + location + role + tool stack
   description:
-    "Sabuj Kumar Modak — Dhaka-based Software QA Engineer & Security Tester. 2.5+ years in Selenium automation, Postman API, JMeter load & OWASP security testing.",
+    "Sabuj Kumar Modak is a Dhaka-based Software QA Engineer & Security Tester. 2.5+ years in Selenium automation, Postman API, JMeter load & OWASP security testing.",
   shortDescription:
-    "QA Engineer & Security Tester — Selenium, Postman, JMeter, OWASP, BurpSuite. Fintech, EV & ERP products. Dhaka, Bangladesh.",
+    "QA Engineer & Security Tester: Selenium, Postman, JMeter, OWASP, BurpSuite. Fintech, EV & ERP products. Dhaka, Bangladesh.",
   locale: "en_US",
   language: "en",
   twitterHandle: "@sabujmodak",
@@ -41,7 +41,7 @@ export const siteConfig = {
     countryCode: "BD",
   },
   keywords: [
-    // Branded & identity (highest priority — should rank #1 for direct talent searches)
+    // Branded & identity (highest priority: should rank #1 for direct talent searches)
     "Sabuj Kumar Modak",
     "Sabuj Modak",
     "Sabuj Kumar Modak QA",

@@ -12,6 +12,7 @@ const config: Config = {
         surface: "#0d0e12",
         "surface-2": "#13151b",
         border: "#1f2229",
+        // Dark green / emerald accent: brand color system
         accent: {
           DEFAULT: "#10b981",
           50: "#ecfdf5",

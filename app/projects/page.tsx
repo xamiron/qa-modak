@@ -65,7 +65,7 @@ export default function ProjectsPage() {
                 <span className="gradient-text">test &amp; harden.</span>
               </h1>
               <p className="section-subtitle !max-w-3xl">
-                The full list of QA, automation, and security work — from
+                The full list of QA, automation, and security work, from
                 regulated banking platforms and EV mobile apps to in-house ERPs
                 and personal automation experiments. Use the filters below to
                 narrow by category.
@@ -101,7 +101,7 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* EXPLORER — categories filter + grid */}
+        {/* EXPLORER: categories filter + grid */}
         <section
           aria-labelledby="explorer-heading"
           className="section-y relative"

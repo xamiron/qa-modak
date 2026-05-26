@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: siteConfig.longTitle,
-    template: `%s — ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   },
   // Icons (app/icon.tsx, app/apple-icon.tsx), OG image (app/opengraph-image.png),
   // and Twitter card (app/twitter-image.png) are auto-linked by Next.js file
-  // conventions — no manual declaration needed.
+  // conventions, no manual declaration needed.
 
   // To verify ownership with search engines, set these env vars in Vercel:
   //   NEXT_PUBLIC_GOOGLE_VERIFICATION, NEXT_PUBLIC_YANDEX_VERIFICATION,
@@ -104,7 +104,7 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-// JSON-LD structured data — Person + WebSite for rich results
+// JSON-LD structured data: Person + WebSite for rich results
 const jsonLdPerson = {
   "@context": "https://schema.org",
   "@type": "Person",

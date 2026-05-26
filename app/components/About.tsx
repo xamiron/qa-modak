@@ -13,7 +13,7 @@ const highlights = [
   {
     icon: Bug,
     title: "End-to-End QA Ownership",
-    text: "From requirement analysis to release sign-off — test plans, cases, execution, and bug reports.",
+    text: "From requirement analysis to release sign-off: test plans, cases, execution, and bug reports.",
   },
   {
     icon: ShieldCheck,

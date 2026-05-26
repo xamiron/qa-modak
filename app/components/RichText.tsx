@@ -3,7 +3,7 @@
 import { Fragment } from "react";
 
 type Props = {
-  /** Plain string with `**bold**` segments — rendered as `<strong>` with accent color. */
+  /** Plain string with `**bold**` segments, rendered as `<strong>` with accent color. */
   text: string;
   className?: string;
 };

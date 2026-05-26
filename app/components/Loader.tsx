@@ -84,9 +84,9 @@ export default function Loader() {
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-border/60 bg-surface-2/60 px-3 py-2.5 sm:px-4">
               <div className="flex flex-shrink-0 items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
-                <span className="h-2.5 w-2.5 rounded-full bg-green-500/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-rose-500 ring-1 ring-inset ring-rose-300/40 shadow-[0_0_6px_rgba(244,63,94,0.45)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-400 ring-1 ring-inset ring-amber-200/40 shadow-[0_0_6px_rgba(251,191,36,0.45)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 ring-1 ring-inset ring-emerald-300/40 shadow-[0_0_6px_rgba(16,185,129,0.5)]" />
               </div>
               <span className="flex-1 truncate text-center font-mono text-[10px] text-zinc-500 sm:text-[11px]">
                 <span className="sm:hidden">init.sh</span>

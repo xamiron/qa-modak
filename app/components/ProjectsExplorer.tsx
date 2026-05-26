@@ -140,7 +140,7 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
               No projects in this category yet.
             </p>
             <p className="mt-1 text-xs text-zinc-500">
-              Try another filter — more case studies are on the way.
+              Try another filter. More case studies are on the way.
             </p>
             <button
               type="button"
