@@ -25,9 +25,9 @@ export const experience = [
     period: "Jan 2025 – Present",
     location: "Dhaka, Bangladesh",
     bullets: [
-      "Created and executed manual & automated test cases (Selenium, Java) for web apps.",
+      "Created and executed **manual & automated test cases** (Selenium, Java) for web apps — including a fully dynamic banking platform with **4500+ admin nodes**.",
       "Performed regression testing; tracked and verified fixes using test management tools.",
-      "Conducted penetration testing and vulnerability assessments.",
+      "Conducted **penetration testing** and vulnerability assessments aligned to **OWASP Top 10**.",
       "Tested client-side and server-side input validation, authentication, and authorization.",
       "Conducted API testing with Postman and maintained structured test collections.",
     ],
@@ -51,6 +51,7 @@ export const experience = [
     location: "Dhaka, Bangladesh",
     bullets: [
       "Designed and executed test cases for web & mobile apps; automated key workflows with Selenium.",
+      "Validated the Voice Blaster IVR: tested **1,000+ calls** across **5 interview invitation types** and **20 use cases**.",
       "Conducted API testing with Postman and maintained structured test collections.",
       "Performed load testing with JMeter and security testing for web/mobile apps.",
       "Reported defects, vulnerabilities, and performance bottlenecks; improved release quality.",
@@ -174,6 +175,7 @@ export const projects: {
   title: string;
   org: string;
   description: string;
+  keyTakeaway?: string;
   tags: string[];
   categories: ProjectCategory[];
   link?: string;
@@ -182,7 +184,9 @@ export const projects: {
     title: "Brac Bank Website",
     org: "Singularity Limited",
     description:
-      "Worked on the new Brac Bank website and admin panel with 200+ dynamic pages and 150 products. All components — buttons, banners, colors, layouts — fully configurable. Handled API testing and vulnerability assessments to ensure security and smooth performance.",
+      "Worked on the new Brac Bank website and admin panel with **200+ dynamic pages** and **150 products**. All components — buttons, banners, colors, layouts — fully configurable. Handled API testing and vulnerability assessments to ensure security and smooth performance.",
+    keyTakeaway:
+      "Caught critical input validation and authorization gaps before production — protecting a banking platform serving millions of customers.",
     tags: ["Banking", "API Testing", "Security", "Admin Panel"],
     categories: ["FinTech", "Web", "API & Security"],
     link: "https://www.bracbank.com/en",
@@ -191,7 +195,9 @@ export const projects: {
     title: "Brac Bank Product Selector Tree",
     org: "Singularity Limited",
     description:
-      "Tested a fully dynamic platform suggesting loans, credit cards, accounts, and deposits based on user needs. Admin panel has 4500+ nodes with predefined questions and suggestions. Handled UI, UX, responsiveness, and overall functionality.",
+      "Tested a fully dynamic platform suggesting loans, credit cards, accounts, and deposits based on user needs. Admin panel has **4500+ nodes** with predefined questions and suggestions. Handled UI, UX, responsiveness, and overall functionality.",
+    keyTakeaway:
+      "Validated every branch of a deeply nested decision tree — ensuring customers never hit a dead-end during product discovery.",
     tags: ["FinTech", "UI/UX", "Functional Testing"],
     categories: ["FinTech", "Web"],
     link: "https://www.selector.bracbank.com/en",
@@ -201,6 +207,8 @@ export const projects: {
     org: "Singularity Limited",
     description:
       "Conducted User Acceptance Testing (UAT) and JMeter-based load testing on Nagad's consumer-facing website — Bangladesh's leading mobile financial services platform. Validated transactional flows, offers, and merchant pages for stability under concurrent traffic across desktop and mobile.",
+    keyTakeaway:
+      "Confirmed stability under peak concurrent traffic — safeguarding a critical national payment service.",
     tags: ["FinTech", "UAT", "Load Testing", "JMeter"],
     categories: ["FinTech", "Web"],
     link: "https://nagad.com.bd/",
@@ -210,6 +218,8 @@ export const projects: {
     org: "Singularity Limited",
     description:
       "Owned end-to-end QA for LeadsBox — a sales lead management ERP. Drove requirements analysis, test case design, functional QA, and User Acceptance Testing (UAT) across the full module suite to ensure release readiness.",
+    keyTakeaway:
+      "Acted as sole QA owner across every module — shipped a confident v1 with zero rollback after launch.",
     tags: ["ERP", "Requirements Analysis", "UAT", "Functional QA"],
     categories: ["ERP", "Web"],
     link: "https://leadsbox.io/",
@@ -218,7 +228,9 @@ export const projects: {
     title: "B Charge — Smart EV Charging App",
     org: "Singularity Limited",
     description:
-      "Tested core features of the B Charge app including secure login, nearby station locator, real-time charger availability, booking, cost summary, and charging history across Android & iOS.",
+      "Tested core features of the B Charge app including secure login, nearby station locator, real-time charger availability, booking, cost summary, and charging history across **Android & iOS**.",
+    keyTakeaway:
+      "Surfaced billing edge cases in real-time charging sessions — preventing customer-side payment disputes post-launch.",
     tags: ["Mobile QA", "Android", "iOS", "EV"],
     categories: ["Mobile"],
     link: "https://play.google.com/store/apps/details?id=com.bondstein.app.bcharge&hl=en_US",
@@ -245,7 +257,9 @@ export const projects: {
     title: "Voice Blaster (BDJobs Web)",
     org: "Bdjobs.com Ltd",
     description:
-      "Tested 1,000+ calls across 5 interview invitation types covering 20 use cases using AI-driven methods to validate IVR and call flows.",
+      "Tested **1,000+ calls** across **5 interview invitation types** covering **20 use cases** using AI-driven methods to validate IVR and call flows.",
+    keyTakeaway:
+      "Caught IVR routing bugs that would have misdirected thousands of candidates — saving recruiters and applicants from broken voice flows.",
     tags: ["IVR", "AI Testing", "Voice"],
     categories: ["Web", "Automation"],
     link: "",
@@ -320,16 +334,24 @@ export const publication = {
   title:
     "Dynamic Phishing URL Detection Using Machine Learning & Deep Learning Algorithms",
   status: "In Progress",
+  abstract:
+    "A hybrid ML / DL pipeline that flags phishing URLs in real-time using lexical, host-based, and content features — benchmarked against modern adversarial techniques.",
+  abstractLink: "",
 };
 
 export const quotes = [
   {
-    text: "Hope Keeps Us Alive.",
+    text: "Hope keeps us alive — thorough testing keeps the software alive.",
     author: "Sabuj Modak",
     role: "QA Engineer",
   },
   {
-    text: "Finding Bugs is Just the Start—Building Better Products is the Goal!",
+    text: "Finding bugs is just the start — building better products is the goal.",
+    author: "Sabuj Modak",
+    role: "QA Engineer",
+  },
+  {
+    text: "Quality is not an afterthought; it's the way the work is done.",
     author: "Sabuj Modak",
     role: "QA Engineer",
   },

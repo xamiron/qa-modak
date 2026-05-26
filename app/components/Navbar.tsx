@@ -70,7 +70,7 @@ export default function Navbar() {
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-border/60 bg-background/75 backdrop-blur-xl"
+          ? "border-b border-border bg-background/80 backdrop-blur-xl"
           : "bg-transparent"
       )}
     >
@@ -124,7 +124,7 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-border/80 bg-surface/90 text-zinc-100 backdrop-blur-md transition-colors hover:border-accent/40 hover:text-accent-300 xl:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-zinc-700 bg-surface text-zinc-100 backdrop-blur-md transition-colors hover:border-accent/60 hover:text-accent-300 xl:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -138,7 +138,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border/60 bg-background/95 backdrop-blur-xl xl:hidden"
+            className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background/95 backdrop-blur-xl xl:hidden"
           >
             <ul className="section-padding py-4">
               {links.map((l) => (

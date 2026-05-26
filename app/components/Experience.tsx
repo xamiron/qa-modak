@@ -2,6 +2,7 @@
 
 import { Briefcase, MapPin } from "lucide-react";
 import Reveal from "./Reveal";
+import RichText from "./RichText";
 import { experience } from "../data";
 
 export default function Experience() {
@@ -68,7 +69,7 @@ export default function Experience() {
                       {exp.bullets.map((b) => (
                         <li key={b} className="flex gap-3">
                           <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent/70" />
-                          <span>{b}</span>
+                          <RichText text={b} />
                         </li>
                       ))}
                     </ul>

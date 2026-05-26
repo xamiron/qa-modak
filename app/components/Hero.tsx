@@ -51,7 +51,7 @@ export default function Hero() {
           <div className="relative h-32 w-32 overflow-hidden rounded-full border border-accent/40 bg-surface sm:h-36 sm:w-36">
             <Image
               src="/sabuj.png"
-              alt={`${personal.name} — ${personal.title}`}
+              alt={`${personal.name} — Software QA Automation Engineer & Security Tester`}
               fill
               priority
               sizes="144px"
@@ -60,7 +60,7 @@ export default function Hero() {
           </div>
           <span
             aria-label="Online"
-            className="absolute bottom-2 right-2 grid h-6 w-6 place-items-center rounded-full border-[3px] border-background bg-background sm:bottom-2.5 sm:right-2.5"
+            className="absolute -bottom-0.5 -right-0.5 grid h-7 w-7 place-items-center rounded-full border-[3px] border-background bg-background shadow-glow-soft sm:-bottom-1 sm:-right-1 sm:h-7 sm:w-7"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-accent opacity-75" />
@@ -92,7 +92,7 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           variants={fadeUp}
-          className="text-balance text-[2rem] font-bold leading-[1.1] tracking-tight text-zinc-50 sm:text-5xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
+          className="text-balance text-3xl font-bold leading-[1.15] tracking-tight text-zinc-50 sm:text-5xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
         >
           Sabuj Kumar{" "}
           <span className="gradient-text inline-block pb-1">Modak.</span>
@@ -128,7 +128,7 @@ export default function Hero() {
         {/* Social row */}
         <motion.ul
           variants={fadeUp}
-          className="mt-8 flex w-full items-center justify-center gap-2.5"
+          className="mx-auto mt-8 flex items-center justify-center gap-2.5"
         >
           <li>
             <a

@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, BadgeCheck, BookOpen, Trophy } from "lucide-react";
+import { ArrowUpRight, Award, BadgeCheck, BookOpen, Trophy } from "lucide-react";
 import Reveal from "./Reveal";
 import { achievements, certifications, publication } from "../data";
 
@@ -103,10 +103,32 @@ export default function Recognition() {
                 <p className="text-sm font-medium leading-relaxed text-zinc-200">
                   {publication.title}
                 </p>
-                <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-[11px] font-medium text-accent-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-                  {publication.status}
-                </span>
+
+                {publication.abstract && (
+                  <p className="mt-2 text-xs leading-relaxed text-zinc-400">
+                    {publication.abstract}
+                  </p>
+                )}
+
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-[11px] font-medium text-accent-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                    {publication.status}
+                  </span>
+
+                  {publication.abstractLink && (
+                    <a
+                      href={publication.abstractLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 rounded-full border border-border bg-surface/70 px-2.5 py-0.5 text-[11px] font-semibold text-zinc-200 transition-colors hover:border-accent/50 hover:text-accent-300"
+                      aria-label="Read abstract of upcoming publication"
+                    >
+                      Read Abstract
+                      <ArrowUpRight className="h-3 w-3" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </Reveal>

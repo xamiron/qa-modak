@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Reveal from "./Reveal";
 import ProjectCard from "./ProjectCard";
+import RichText from "./RichText";
 import { projects } from "../data";
 
 const HOME_PROJECT_LIMIT = 6;
@@ -133,8 +134,24 @@ export default function Projects() {
                 </div>
 
                 <p className="mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-300 sm:text-base sm:leading-[1.7]">
-                  {featured.description}
+                  <RichText text={featured.description} />
                 </p>
+
+                {featured.keyTakeaway && (
+                  <div className="mt-5 flex items-start gap-3 rounded-xl border border-accent/30 bg-accent/[0.08] p-4">
+                    <Sparkles
+                      aria-hidden
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-300"
+                    />
+                    <p className="text-sm leading-relaxed text-zinc-200">
+                      <span className="font-semibold uppercase tracking-wider text-accent-300">
+                        Impact
+                      </span>
+                      <span className="mx-2 text-zinc-600">·</span>
+                      {featured.keyTakeaway}
+                    </p>
+                  </div>
+                )}
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {featured.tags.map((t) => (
