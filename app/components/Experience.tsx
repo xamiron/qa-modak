@@ -44,10 +44,10 @@ export default function Experience() {
                     <Briefcase aria-hidden className="h-4 w-4" />
                   </div>
 
-                  <article className="card card-hover p-6 md:p-7">
+                  <article className="card card-hover p-4 sm:p-6 md:p-7">
                     <header className="mb-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
                       <div>
-                        <h3 className="text-xl font-semibold text-zinc-100">
+                        <h3 className="text-balance text-lg font-semibold text-zinc-100 sm:text-xl">
                           {exp.role}
                         </h3>
                         <p className="mt-1 text-sm font-medium text-accent-300">

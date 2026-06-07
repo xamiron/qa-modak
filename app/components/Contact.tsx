@@ -1,8 +1,17 @@
 "use client";
 
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import {
+  FileText,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+} from "lucide-react";
 import Reveal from "./Reveal";
 import { personal } from "../data";
+import { openResumeInNewTabAndDownload } from "../utils/resume";
 
 const contactItems = [
   {
@@ -38,7 +47,7 @@ export default function Contact() {
 
       <div className="container-max section-padding">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-8 backdrop-blur-md md:p-12 lg:p-16">
+          <div className="relative overflow-hidden rounded-2xl border border-border bg-surface/60 p-5 backdrop-blur-md sm:rounded-3xl sm:p-8 md:p-12 lg:p-16">
             <div
               aria-hidden
               className="absolute inset-0 -z-10 bg-grid opacity-30 mask-fade-b"
@@ -60,23 +69,23 @@ export default function Contact() {
                   consulting engagements.
                 </p>
 
-                <div className="mt-7 flex flex-wrap items-center gap-3">
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                   <a
                     href={`mailto:${personal.email}`}
-                    className="btn-primary"
+                    className="btn-primary btn-mobile-full"
                   >
                     <Send className="h-4 w-4" />
                     Send a message
                   </a>
-                  <a
-                    href={personal.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary"
+                  <button
+                    type="button"
+                    onClick={openResumeInNewTabAndDownload}
+                    className="btn-secondary btn-mobile-full"
+                    aria-label="View resume in new tab and download PDF"
                   >
-                    <Linkedin className="h-4 w-4" />
-                    Connect on LinkedIn
-                  </a>
+                    <FileText className="h-4 w-4" />
+                    View Resume
+                  </button>
                 </div>
               </div>
 

@@ -51,7 +51,7 @@ export default function Domains() {
             const Icon = iconMap[d.icon] ?? Landmark;
             return (
               <Reveal key={d.title} delay={i * 0.06}>
-                <div className="card card-hover group relative h-full overflow-hidden p-6">
+                <div className="card card-hover group relative h-full overflow-hidden p-4 sm:p-6">
                   <div
                     aria-hidden
                     className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"

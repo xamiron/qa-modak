@@ -4,20 +4,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, FileText, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import { personal } from "../data";
-
-const RESUME_FILENAME = "Sabuj_Kumar_Modak_QA.pdf";
-
-function openResumeInNewTabAndDownload() {
-  window.open(personal.resume, "_blank", "noopener,noreferrer");
-
-  const link = document.createElement("a");
-  link.href = personal.resume;
-  link.download = RESUME_FILENAME;
-  link.rel = "noopener";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
+import { openResumeInNewTabAndDownload } from "../utils/resume";
 
 export default function Hero() {
   const prefersReduced = useReducedMotion();
@@ -86,7 +73,7 @@ export default function Hero() {
         {/* Status pill */}
         <motion.div
           variants={fadeUp}
-          className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/70 px-4 py-1.5 text-xs font-medium tracking-wide text-zinc-300 backdrop-blur"
+          className="mb-5 inline-flex max-w-[calc(100vw-2.5rem)] items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1.5 text-[11px] font-medium tracking-wide text-zinc-300 backdrop-blur sm:max-w-none sm:gap-2.5 sm:px-4 sm:text-xs"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-accent opacity-75" />
@@ -98,7 +85,7 @@ export default function Hero() {
         {/* Eyebrow */}
         <motion.p
           variants={fadeUp}
-          className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em] text-accent-400 sm:text-xs"
+          className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-400 sm:text-xs sm:tracking-[0.3em]"
         >
           Software QA Engineer · Security Tester
         </motion.p>
@@ -106,7 +93,7 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           variants={fadeUp}
-          className="text-balance text-3xl font-bold leading-[1.15] tracking-tight text-zinc-50 sm:text-5xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
+          className="text-balance text-[1.75rem] font-bold leading-[1.15] tracking-tight text-zinc-50 sm:text-5xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
         >
           Sabuj Kumar{" "}
           <span className="gradient-text inline-block pb-1">Modak.</span>
@@ -127,16 +114,16 @@ export default function Hero() {
         {/* CTAs */}
         <motion.div
           variants={fadeUp}
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
+          className="mt-8 flex w-full max-w-xs flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center"
         >
-          <a href="#projects" className="btn-primary">
+          <a href="#projects" className="btn-primary btn-mobile-full">
             View My Work
             <ArrowRight className="h-4 w-4" />
           </a>
           <button
             type="button"
             onClick={openResumeInNewTabAndDownload}
-            className="btn-secondary"
+            className="btn-secondary btn-mobile-full"
             aria-label="View resume in new tab and download PDF"
           >
             <FileText className="h-4 w-4" />

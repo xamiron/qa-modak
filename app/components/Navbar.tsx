@@ -32,6 +32,13 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
     if (pathname !== "/") {
       setActive("");
       return;
@@ -146,7 +153,7 @@ export default function Navbar() {
                   <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-3 text-sm font-medium text-zinc-300 transition-colors hover:bg-surface hover:text-accent-300"
+                    className="block min-h-11 rounded-lg px-3 py-3 text-sm font-medium text-zinc-300 transition-colors hover:bg-surface hover:text-accent-300"
                   >
                     {l.label}
                   </Link>

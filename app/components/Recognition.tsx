@@ -31,7 +31,7 @@ export default function Recognition() {
 
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
           <Reveal>
-            <div className="card card-hover h-full p-6">
+            <div className="card card-hover h-full p-4 sm:p-6">
               <div className="mb-5 flex items-center gap-3">
                 <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
                   <BadgeCheck className="h-5 w-5" />
@@ -57,7 +57,7 @@ export default function Recognition() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="card card-hover h-full p-6">
+            <div className="card card-hover h-full p-4 sm:p-6">
               <div className="mb-5 flex items-center gap-3">
                 <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
                   <Trophy className="h-5 w-5" />
@@ -87,7 +87,7 @@ export default function Recognition() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="card card-hover h-full p-6">
+            <div className="card card-hover h-full p-4 sm:p-6">
               <div className="mb-5 flex items-center gap-3">
                 <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
                   <BookOpen className="h-5 w-5" />

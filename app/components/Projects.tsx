@@ -81,7 +81,7 @@ export default function Projects() {
                     <p className="text-lg font-bold leading-none text-zinc-100 sm:text-2xl">
                       {s.value}
                     </p>
-                    <p className="mt-1 font-mono text-[9px] leading-tight uppercase tracking-[0.15em] text-zinc-500 sm:text-[11px] sm:tracking-[0.18em]">
+                    <p className="mt-1 font-mono text-[8px] leading-tight uppercase tracking-[0.1em] text-zinc-500 sm:text-[11px] sm:tracking-[0.18em]">
                       {s.label}
                     </p>
                   </div>
@@ -95,7 +95,7 @@ export default function Projects() {
         <Reveal delay={0.1}>
           <FeaturedWrapper
             {...featuredWrapperProps}
-            className="card card-hover group relative mt-6 block overflow-hidden p-6 sm:p-8 md:p-10"
+            className="card card-hover group relative mt-6 block overflow-hidden p-4 sm:p-8 md:p-10"
           >
             {/* Decorative gradient border accent */}
             <div
@@ -119,12 +119,12 @@ export default function Projects() {
                   Featured
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300 transition-transform group-hover:-translate-y-0.5 sm:h-12 sm:w-12">
-                    <FolderGit2 className="h-5 w-5" />
+                <div className="flex items-start gap-3">
+                  <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300 transition-transform group-hover:-translate-y-0.5 sm:h-12 sm:w-12">
+                    <FolderGit2 className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="text-xl font-semibold leading-tight text-zinc-100 sm:text-2xl md:text-3xl">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-balance text-base font-semibold leading-snug text-zinc-100 sm:text-2xl md:text-3xl">
                       {featured.title}
                     </h3>
                     <p className="mt-1 font-mono text-xs text-zinc-500">
@@ -138,7 +138,7 @@ export default function Projects() {
                 </p>
 
                 {featured.keyTakeaway && (
-                  <div className="mt-5 flex items-start gap-3 rounded-xl border border-accent/30 bg-accent/[0.08] p-4">
+                  <div className="mt-5 flex items-start gap-3 rounded-xl border border-accent/30 bg-accent/[0.08] p-3 sm:p-4">
                     <Sparkles
                       aria-hidden
                       className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-300"
@@ -209,7 +209,7 @@ export default function Projects() {
             <div className="mt-10 flex flex-col items-center gap-2">
               <Link
                 href="/projects"
-                className="btn-primary group"
+                className="btn-primary btn-mobile-full group max-w-xs sm:max-w-none"
                 aria-label="View all projects"
               >
                 View All Projects

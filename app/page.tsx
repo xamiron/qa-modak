@@ -18,7 +18,7 @@ export default function Page() {
     <>
       <ScrollProgress />
       <Navbar />
-      <main id="main" className="relative" role="main">
+      <main id="main" className="relative overflow-x-hidden" role="main">
         <Hero />
         <Experience />
         <Projects />

@@ -35,42 +35,47 @@ export default function Skills() {
         <div className="mt-8 grid gap-4 sm:gap-5 md:grid-cols-2">
           {skillGroups.map((group, i) => {
             const Icon = iconMap[group.icon] ?? ShieldCheck;
-            const isWide = group.title === "Tools & Technologies";
             return (
-              <Reveal
-                key={group.title}
-                delay={i * 0.08}
-                className={isWide ? "md:col-span-2" : ""}
-              >
-                <div className="card card-hover group h-full p-5 sm:p-6 md:p-7">
-                  <div className="mb-4 flex items-center justify-between gap-3 sm:mb-5">
-                    <div className="flex items-center gap-3">
-                      <div className="grid h-10 w-10 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300 transition-all group-hover:bg-accent/20 group-hover:shadow-glow-accent sm:h-11 sm:w-11">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="text-base font-semibold text-zinc-100 sm:text-lg">
-                        {group.title}
-                      </h3>
-                    </div>
-                    <span className="rounded-full border border-border bg-surface/60 px-2.5 py-0.5 font-mono text-[10px] tabular-nums text-zinc-500">
-                      {group.items.length}
-                    </span>
-                  </div>
+              <Reveal key={group.title} delay={i * 0.08} className="h-full">
+                <article className="card card-hover group relative flex h-full min-w-0 flex-col overflow-hidden p-4 sm:p-6 md:p-7">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-70"
+                  />
 
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  <header className="mb-4 flex items-start justify-between gap-3 border-b border-border/40 pb-4 sm:mb-5">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300 transition-all group-hover:-translate-y-0.5 group-hover:bg-accent/20 group-hover:shadow-glow-soft sm:h-11 sm:w-11">
+                        <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-balance text-sm font-semibold leading-snug text-zinc-100 sm:text-lg">
+                          {group.title}
+                        </h3>
+                        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-zinc-500">
+                          {group.items.length} skills
+                        </p>
+                      </div>
+                    </div>
+                    <span
+                      aria-hidden
+                      className="rounded-lg border border-border/60 bg-surface/50 px-2 py-1 font-mono text-[11px] tabular-nums text-zinc-500"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </header>
+
+                  <ul
+                    className="flex flex-1 flex-wrap content-start gap-2"
+                    aria-label={`${group.title} list`}
+                  >
                     {group.items.map((item) => (
-                      <span
-                        key={item}
-                        className={[
-                          "chip text-[11px] sm:text-xs",
-                          isWide ? "py-1" : "",
-                        ].join(" ")}
-                      >
-                        {item}
-                      </span>
+                      <li key={item}>
+                        <span className="chip text-[11px] sm:text-xs">{item}</span>
+                      </li>
                     ))}
-                  </div>
-                </div>
+                  </ul>
+                </article>
               </Reveal>
             );
           })}

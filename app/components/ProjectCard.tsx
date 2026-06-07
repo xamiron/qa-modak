@@ -59,15 +59,15 @@ function DefaultProjectCard({ project }: { project: Project }) {
   return (
     <Wrapper
       {...wrapperProps}
-      className="card card-hover group relative flex h-full flex-col p-6 md:p-7"
+      className="card card-hover group relative flex h-full min-w-0 flex-col p-4 sm:p-6 md:p-7"
     >
-      <header className="mb-3 flex items-start justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300">
+      <header className="mb-3 flex items-start justify-between gap-3 sm:gap-4">
+        <div className="flex min-w-0 items-center gap-3">
+          <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300">
             <FolderGit2 className="h-4 w-4" />
           </div>
-          <div>
-            <h3 className="text-lg font-semibold text-zinc-100 transition-colors group-hover:text-accent-200">
+          <div className="min-w-0">
+            <h3 className="text-balance text-base font-semibold text-zinc-100 transition-colors group-hover:text-accent-200 sm:text-lg">
               {project.title}
             </h3>
             <p className="font-mono text-xs text-zinc-500">{project.org}</p>

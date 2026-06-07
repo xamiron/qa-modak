@@ -51,7 +51,7 @@ export default function Quotes() {
             <span aria-hidden className="h-px w-8 bg-accent" />
           </p>
 
-          <div className="relative mt-8 min-h-[260px] sm:min-h-[240px] md:min-h-[220px]">
+          <div className="relative mt-6 min-h-[200px] sm:mt-8 sm:min-h-[240px] md:min-h-[220px]">
             <Quote
               aria-hidden
               className="mx-auto h-10 w-10 text-accent-400/60 md:h-12 md:w-12"
@@ -66,7 +66,7 @@ export default function Quotes() {
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 className="mx-auto mt-6"
               >
-                <p className="text-balance text-xl font-medium leading-relaxed text-zinc-100 sm:text-2xl md:text-3xl md:leading-snug">
+                <p className="text-balance px-1 text-lg font-medium leading-relaxed text-zinc-100 sm:px-0 sm:text-2xl md:text-3xl md:leading-snug">
                   <span aria-hidden className="text-accent-400">&ldquo;</span>
                   {current.text}
                   <span aria-hidden className="text-accent-400">&rdquo;</span>

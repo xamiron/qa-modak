@@ -102,7 +102,7 @@ export default function Footer() {
             </ul>
             <a
               href={`mailto:${personal.email}`}
-              className="mt-3 inline-block text-sm text-zinc-400 transition-colors hover:text-accent-300"
+              className="mt-3 inline-block break-all text-sm text-zinc-400 transition-colors hover:text-accent-300 sm:break-normal"
             >
               {personal.email}
             </a>

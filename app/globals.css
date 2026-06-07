@@ -215,6 +215,42 @@ body {
   .section-subtitle {
     @apply max-w-2xl text-pretty text-base leading-relaxed text-zinc-400 md:text-lg;
   }
+
+  /* Full-width CTAs on small screens */
+  .btn-mobile-full {
+    @apply w-full sm:w-auto;
+  }
+}
+
+/* Home page — mobile-only refinements */
+@media (max-width: 639px) {
+  html {
+    scroll-padding-top: 4.5rem;
+  }
+
+  .section-title {
+    font-size: 1.625rem;
+    line-height: 1.2;
+  }
+
+  .section-y {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .chip {
+    max-width: 100%;
+    text-align: left;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    min-height: 2.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 /* Section transitions: subtle gradient divider between sections */

@@ -55,7 +55,7 @@ export default function About() {
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((h, i) => (
             <Reveal key={h.title} delay={i * 0.08}>
-              <div className="card card-hover h-full p-6">
+              <div className="card card-hover h-full p-4 sm:p-6">
                 <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
                   <h.icon className="h-5 w-5" />
                 </div>
