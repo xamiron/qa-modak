@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Loader from "./components/Loader";
 import "./globals.css";
-import { siteConfig, siteUrl } from "./seo";
+import { pageSeo, siteConfig, siteUrl } from "./seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,12 +19,11 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  ...pageSeo.home,
   title: {
     default: siteConfig.longTitle,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
-  keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name, url: siteUrl }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
@@ -43,30 +42,9 @@ export const metadata: Metadata = {
       "x-default": "/",
     },
   },
-  openGraph: {
-    type: "profile",
-    locale: siteConfig.locale,
-    url: siteUrl,
-    siteName: siteConfig.name,
-    title: siteConfig.shortTitle,
-    description: siteConfig.description,
-    firstName: "Sabuj Kumar",
-    lastName: "Modak",
-    username: "sabujmodak",
-    gender: "male",
-    // Next.js auto-injects /opengraph-image from app/opengraph-image.tsx
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.shortTitle,
-    description: siteConfig.shortDescription,
-    creator: siteConfig.twitterHandle,
-    // Next.js auto-injects /twitter-image from app/twitter-image.png
-  },
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -76,13 +54,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // Icons (app/icon.tsx, app/apple-icon.tsx), OG image (app/opengraph-image.png),
-  // and Twitter card (app/twitter-image.png) are auto-linked by Next.js file
-  // conventions, no manual declaration needed.
-
-  // To verify ownership with search engines, set these env vars in Vercel:
-  //   NEXT_PUBLIC_GOOGLE_VERIFICATION, NEXT_PUBLIC_YANDEX_VERIFICATION,
-  //   NEXT_PUBLIC_BING_VERIFICATION
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
     yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
@@ -104,7 +75,6 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-// JSON-LD structured data: Person + WebSite for rich results
 const jsonLdPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -113,7 +83,7 @@ const jsonLdPerson = {
   familyName: "Modak",
   jobTitle: siteConfig.role,
   url: siteUrl,
-  image: `${siteUrl}/opengraph-image`,
+  image: `${siteUrl}${siteConfig.ogImage}`,
   email: siteConfig.email,
   address: {
     "@type": "PostalAddress",
@@ -125,24 +95,23 @@ const jsonLdPerson = {
     "@type": "Organization",
     name: "Singularity Limited",
   },
-  alumniOf: [
-    {
-      "@type": "CollegeOrUniversity",
-      name: "University of Information Technology & Sciences",
-    },
-  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Information Technology & Sciences",
+  },
   knowsAbout: [
     "Software Quality Assurance",
-    "Manual Testing",
-    "Test Automation",
-    "Selenium WebDriver",
+    "Functional Testing",
+    "Regression Testing",
     "API Testing",
+    "Performance Testing",
+    "Selenium WebDriver",
     "Postman",
-    "JMeter Performance Testing",
-    "Web Application Penetration Testing",
+    "JMeter",
     "OWASP Top 10",
+    "Web Application Penetration Testing",
     "Burp Suite",
-    "Vulnerability Assessment",
+    "Biometric Testing",
     "Agile Scrum",
   ],
   sameAs: [siteConfig.socials.github, siteConfig.socials.linkedin],
@@ -155,10 +124,16 @@ const jsonLdWebsite = {
   url: siteUrl,
   description: siteConfig.description,
   inLanguage: "en-US",
-  author: {
-    "@type": "Person",
-    name: siteConfig.name,
-  },
+  author: { "@type": "Person", name: siteConfig.name },
+};
+
+const jsonLdProfile = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  name: siteConfig.shortTitle,
+  description: siteConfig.description,
+  url: siteUrl,
+  mainEntity: { "@type": "Person", name: siteConfig.name },
 };
 
 export default function RootLayout({
@@ -169,11 +144,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
       <head>
-        <link rel="canonical" href={siteUrl} />
         <meta name="author" content={siteConfig.name} />
         <meta name="geo.region" content="BD-13" />
         <meta name="geo.placename" content={siteConfig.location.city} />
+        <meta name="geo.position" content="23.8103;90.4125" />
+        <meta name="ICBM" content="23.8103, 90.4125" />
         <meta name="DC.title" content={siteConfig.shortTitle} />
+        <meta name="DC.description" content={siteConfig.description} />
+        <meta name="DC.creator" content={siteConfig.name} />
+        <meta name="DC.language" content="en" />
+        <meta property="og:email" content={siteConfig.email} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
@@ -181,6 +161,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdProfile) }}
         />
       </head>
       <body className="bg-background text-zinc-200 antialiased">

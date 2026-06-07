@@ -8,13 +8,9 @@ import ProjectsExplorer from "../components/ProjectsExplorer";
 import Reveal from "../components/Reveal";
 import ScrollProgress from "../components/ScrollProgress";
 import { projectCategories, projects } from "../data";
+import { pageSeo } from "../seo";
 
-export const metadata: Metadata = {
-  title: "All Projects",
-  description:
-    "A complete catalogue of QA, automation, and security projects Sabuj Modak has worked on across fintech, EV, and enterprise products. Filter by category to explore.",
-  alternates: { canonical: "/projects" },
-};
+export const metadata: Metadata = pageSeo.projects;
 
 const summaryStats = [
   {

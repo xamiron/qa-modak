@@ -163,6 +163,43 @@ body {
     @apply inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-5 py-2.5 text-sm font-semibold text-zinc-200 backdrop-blur-sm transition-all duration-300 hover:border-accent/50 hover:bg-surface-2 hover:text-accent-300 active:scale-95;
   }
 
+  .touch-target {
+    @apply min-h-11 touch-manipulation;
+  }
+
+  .filter-scroll {
+    @apply flex gap-2 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [scroll-snap-type:x_mandatory] sm:flex-wrap sm:overflow-visible [&::-webkit-scrollbar]:hidden;
+  }
+
+  .filter-scroll > * {
+    scroll-snap-align: start;
+  }
+
+  /* Compact FAQ accordion — low height when collapsed */
+  .faq-list {
+    @apply mx-auto flex w-full max-w-3xl flex-col gap-1.5;
+  }
+
+  .faq-card {
+    @apply overflow-hidden rounded-xl border border-border/70 bg-surface/40 transition-colors duration-200;
+  }
+
+  .faq-card[data-open="true"] {
+    @apply border-accent/40 bg-surface-2/60 shadow-glow-soft;
+  }
+
+  .faq-trigger {
+    @apply flex w-full items-center gap-2.5 px-3 py-2.5 text-left sm:gap-3 sm:px-4 sm:py-3;
+  }
+
+  .faq-trigger:hover {
+    @apply bg-surface/50;
+  }
+
+  .faq-panel {
+    @apply border-t border-border/40 bg-black/10 px-3 pb-3 pt-2.5 sm:px-4 sm:pb-3.5 sm:pt-3;
+  }
+
   .section-heading {
     @apply mb-3 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-accent-400 sm:text-sm;
   }

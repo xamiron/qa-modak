@@ -22,13 +22,9 @@ import Navbar from "../components/Navbar";
 import Reveal from "../components/Reveal";
 import ScrollProgress from "../components/ScrollProgress";
 import { domains, stats } from "../data";
+import { pageSeo } from "../seo";
 
-export const metadata: Metadata = {
-  title: "Journey | Who I Am",
-  description:
-    "The story behind Sabuj Modak: who I am, the highs and lows of the journey, and the domains I've helped test, automate, and harden.",
-  alternates: { canonical: "/journey" },
-};
+export const metadata: Metadata = pageSeo.journey;
 
 const domainIconMap: Record<string, LucideIcon> = {
   Landmark,

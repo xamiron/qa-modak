@@ -1,19 +1,21 @@
+import type { Metadata } from "next";
+
 /**
- * Central SEO configuration.
- *
- * To change the production URL, set the env var `NEXT_PUBLIC_SITE_URL`
- * in your Vercel project settings (e.g. https://sabuj-modak.vercel.app
- * or your custom domain). It is also picked up automatically on Vercel
- * via VERCEL_URL.
+ * Canonical production URL for OG images, sitemaps, and JSON-LD.
+ * Set NEXT_PUBLIC_SITE_URL in Vercel (e.g. https://qa-sabuj-modak.vercel.app).
  */
 function resolveSiteUrl(): string {
   if (process.env.NEXT_PUBLIC_SITE_URL) {
     return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
   }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    const host = process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(
+      /^https?:\/\//,
+      "",
+    );
+    return `https://${host.replace(/\/$/, "")}`;
   }
-  return "https://sabuj-modak.vercel.app";
+  return "https://qa-sabuj-modak.vercel.app";
 }
 
 export const siteUrl = resolveSiteUrl();
@@ -25,11 +27,10 @@ export const siteConfig = {
   shortTitle: "Sabuj Kumar Modak | Software QA Engineer | Security Tester",
   longTitle:
     "Sabuj Kumar Modak | Software QA Engineer | Security Tester | Selenium Automation",
-  // Search-optimized (~160 chars): branded name + location + role + tool stack
   description:
-    "Sabuj Kumar Modak is a Dhaka-based Software QA Engineer & Security Tester. 2.5+ years in Selenium automation, Postman API, JMeter load & OWASP security testing.",
+    "Sabuj Kumar Modak is a Dhaka-based Software QA Engineer & Security Tester with 2.5+ years experience in Selenium automation, Postman API testing, JMeter performance testing, and OWASP security testing across fintech, biometrics, and enterprise products.",
   shortDescription:
-    "QA Engineer & Security Tester: Selenium, Postman, JMeter, OWASP, BurpSuite. Fintech, EV & ERP products. Dhaka, Bangladesh.",
+    "QA Engineer & Security Tester in Dhaka — Selenium, Postman, JMeter, OWASP, Burp Suite. Fintech, biometrics, EV & ERP testing.",
   locale: "en_US",
   language: "en",
   twitterHandle: "@sabujmodak",
@@ -41,61 +42,123 @@ export const siteConfig = {
     countryCode: "BD",
   },
   keywords: [
-    // Branded & identity (highest priority: should rank #1 for direct talent searches)
     "Sabuj Kumar Modak",
     "Sabuj Modak",
     "Sabuj Kumar Modak QA",
-    "Sabuj Kumar Modak Software QA Engineer",
+    "Sabuj Modak Software QA Engineer",
     "Sabuj Modak Security Tester",
-    "sabuj.qa",
-
-    // Core role & location (recruiter-targeted)
     "Software QA Engineer Dhaka",
     "QA Engineer Bangladesh",
     "Security Tester Bangladesh",
-    "Junior Software QA Engineer",
-    "Freelance Security Tester Fintech",
-    "Quality Assurance Engineer",
-    "Software Tester",
-    "Penetration Tester",
-    "Manual Testing",
-
-    // Tool & framework long-tail
-    "Selenium Java Web Automation",
-    "Selenium Automation Engineer",
-    "Test Automation Java",
-    "API Testing using Postman",
-    "Postman API Testing Collections",
-    "JMeter Load Testing Web Apps",
+    "Selenium WebDriver",
+    "API Testing Postman",
     "JMeter Performance Testing",
-    "BurpSuite Penetration Testing Web Applications",
-    "Burp Suite",
-    "OWASP Top 10 Vulnerability Assessment",
     "OWASP Top 10",
-    "Vulnerability Assessment",
-    "Nmap",
-    "Acunetix",
-
-    // Domain & project-specific
-    "Fintech Platform Functionality Testing",
-    "Banking Website Security Audit QA",
-    "Banking Software Testing",
+    "Burp Suite",
     "FinTech QA",
-    "EV Charging Mobile App Testing iOS Android",
-    "EV Charging App Testing",
-    "Dynamic Product Selector UI UX Testing",
-    "E-commerce Checkout Cart Flow QA",
-    "E-commerce QA",
-    "ERP Testing",
-    "RegTech",
     "Biometric Testing",
+    "RegTech QA",
+    "EV App Testing",
+    "ERP Testing",
+    "Test Automation Java",
+    "Penetration Testing",
   ],
   socials: {
     github: "https://github.com/xamiron",
     linkedin: "https://www.linkedin.com/in/sabuj-kumar-modak/",
     email: "mailto:Sabuj.modak.qa@gmail.com",
   },
-  ogImage: "/opengraph-image",
-};
+  ogImage: "/opengraph-image.png",
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+} as const;
 
 export type SiteConfig = typeof siteConfig;
+
+const sharedOgImages: NonNullable<Metadata["openGraph"]>["images"] = [
+  {
+    url: siteConfig.ogImage,
+    width: siteConfig.ogImageWidth,
+    height: siteConfig.ogImageHeight,
+    alt: siteConfig.shortTitle,
+    type: "image/png",
+  },
+];
+
+const sharedTwitter = {
+  card: "summary_large_image" as const,
+  creator: siteConfig.twitterHandle,
+  images: [siteConfig.ogImage],
+};
+
+/** Reusable metadata for every route — keeps OG, Twitter & canonical in sync. */
+export function createPageMetadata({
+  title,
+  description,
+  path,
+  keywords,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  keywords?: string[];
+}): Metadata {
+  const pageUrl = path === "/" ? siteUrl : `${siteUrl}${path}`;
+
+  return {
+    title,
+    description,
+    keywords: keywords ?? [...siteConfig.keywords],
+    alternates: {
+      canonical: path,
+    },
+    openGraph: {
+      type: "website",
+      locale: siteConfig.locale,
+      url: pageUrl,
+      siteName: siteConfig.name,
+      title,
+      description,
+      images: sharedOgImages,
+    },
+    twitter: {
+      ...sharedTwitter,
+      title,
+      description,
+    },
+  };
+}
+
+export const pageSeo = {
+  home: createPageMetadata({
+    title: siteConfig.longTitle,
+    description: siteConfig.description,
+    path: "/",
+  }),
+  projects: createPageMetadata({
+    title: "Projects & Case Studies",
+    description:
+      "Explore QA case studies by Sabuj Kumar Modak — Brac Bank, Nagad, passport biometrics, EV charging apps, ERP systems, and Selenium automation projects across fintech and enterprise.",
+    path: "/projects",
+    keywords: [
+      ...siteConfig.keywords,
+      "QA Portfolio",
+      "Brac Bank QA",
+      "Passport Biometric Testing",
+      "Nagad UAT",
+      "LeadsBox ERP QA",
+    ],
+  }),
+  journey: createPageMetadata({
+    title: "Career Journey",
+    description:
+      "Sabuj Modak's QA career journey — from junior tester to Software QA Engineer. Experience across fintech, biometrics, e-commerce, ERP, and EV mobility domains in Dhaka, Bangladesh.",
+    path: "/journey",
+    keywords: [
+      ...siteConfig.keywords,
+      "QA Career Journey",
+      "Software Tester Bangladesh",
+      "Singularity Limited QA",
+    ],
+  }),
+};

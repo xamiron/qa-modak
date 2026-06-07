@@ -1,11 +1,14 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, FileText, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 import { personal } from "../data";
+import ResumeModal from "./ResumeModal";
 
 export default function Hero() {
+  const [resumeOpen, setResumeOpen] = useState(false);
   const prefersReduced = useReducedMotion();
 
   const fadeUp: Variants = {
@@ -119,11 +122,17 @@ export default function Hero() {
             View My Work
             <ArrowRight className="h-4 w-4" />
           </a>
-          <a href="#contact" className="btn-secondary">
-            <Mail className="h-4 w-4" />
-            Get in Touch
-          </a>
+          <button
+            type="button"
+            onClick={() => setResumeOpen(true)}
+            className="btn-secondary"
+          >
+            <FileText className="h-4 w-4" />
+            View Resume
+          </button>
         </motion.div>
+
+        <ResumeModal open={resumeOpen} onClose={() => setResumeOpen(false)} />
 
         {/* Social row */}
         <motion.ul

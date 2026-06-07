@@ -1,8 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Filter, Inbox } from "lucide-react";
-import { useMemo, useState } from "react";
+import { ChevronsDownUp, Filter, Inbox, X } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
 import ProjectCard, { type Project } from "./ProjectCard";
 
 type Props = {
@@ -11,12 +11,13 @@ type Props = {
 };
 
 const ALL = "All" as const;
+const RESULTS_ID = "project-results";
 
 export default function ProjectsExplorer({ projects, categories }: Props) {
   const [active, setActive] = useState<string>(ALL);
+  const [openTitle, setOpenTitle] = useState<string | null>(null);
   const prefersReduced = useReducedMotion();
 
-  /** Pre-computed counts so each chip can show how many projects match. */
   const counts = useMemo(() => {
     const map: Record<string, number> = { [ALL]: projects.length };
     for (const cat of categories) {
@@ -30,126 +31,163 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
     return projects.filter((p) => p.categories?.includes(active));
   }, [active, projects]);
 
+  const scrollToResults = useCallback(() => {
+    document.getElementById(RESULTS_ID)?.scrollIntoView({
+      behavior: prefersReduced ? "auto" : "smooth",
+      block: "start",
+    });
+  }, [prefersReduced]);
+
+  const handleFilter = (cat: string) => {
+    setActive(cat);
+    setOpenTitle(null);
+    requestAnimationFrame(scrollToResults);
+  };
+
+  const toggleProject = (title: string) => {
+    setOpenTitle((prev) => (prev === title ? null : title));
+  };
+
   return (
     <div>
-      {/* Filter bar */}
-      <div
-        role="tablist"
-        aria-label="Filter projects by category"
-        className="flex flex-wrap items-center gap-2"
-      >
-        <span className="mr-1 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-          <Filter className="h-3.5 w-3.5" aria-hidden />
-          Filter
-        </span>
-
-        {[ALL, ...categories].map((cat) => {
-          const isActive = active === cat;
-          const count = counts[cat] ?? 0;
-          return (
-            <button
-              key={cat}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              onClick={() => setActive(cat)}
-              className={[
-                "inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition-all sm:text-sm",
-                isActive
-                  ? "border-accent/60 bg-accent/15 text-accent-200 shadow-glow-soft"
-                  : "border-border bg-surface/60 text-zinc-300 hover:border-accent/40 hover:text-accent-300",
-              ].join(" ")}
-            >
-              <span>{cat}</span>
-              <span
-                className={[
-                  "rounded-full px-1.5 py-0.5 font-mono text-[10px] leading-none",
-                  isActive
-                    ? "bg-accent/30 text-accent-100"
-                    : "bg-surface-2/70 text-zinc-500",
-                ].join(" ")}
-              >
-                {count}
+      {/* Sticky filter */}
+      <div className="sticky top-[4.25rem] z-20 -mx-5 border-b border-border/40 bg-background/90 px-5 py-3 backdrop-blur-md sm:-mx-8 sm:top-[4.5rem] sm:px-8 sm:py-4 lg:-mx-16 lg:px-16 xl:-mx-24 xl:px-24">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex min-w-0 items-center gap-2.5">
+              <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300">
+                <Filter className="h-4 w-4" aria-hidden />
               </span>
-            </button>
-          );
-        })}
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-zinc-200">
+                  Filter projects
+                </p>
+                <p
+                  aria-live="polite"
+                  className="font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-500"
+                >
+                  {visible.length} projects · tap to expand
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-shrink-0 gap-2">
+              {openTitle && (
+                <button
+                  type="button"
+                  onClick={() => setOpenTitle(null)}
+                  className="touch-target hidden items-center gap-1 rounded-lg border border-border bg-surface/70 px-3 text-xs font-semibold text-zinc-400 hover:text-accent-300 sm:inline-flex"
+                  aria-label="Collapse all"
+                >
+                  <ChevronsDownUp className="h-3.5 w-3.5" aria-hidden />
+                  Collapse
+                </button>
+              )}
+              {active !== ALL && (
+                <button
+                  type="button"
+                  onClick={() => handleFilter(ALL)}
+                  className="touch-target inline-flex items-center gap-1 rounded-lg border border-border bg-surface/70 px-3 text-xs font-semibold text-zinc-300 hover:text-accent-300"
+                  aria-label="Clear filter"
+                >
+                  <X className="h-3.5 w-3.5" aria-hidden />
+                  Clear
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-background to-transparent sm:hidden"
+            />
+            <div
+              role="tablist"
+              aria-label="Filter by category"
+              className="filter-scroll"
+            >
+              {[ALL, ...categories].map((cat) => {
+                const isActive = active === cat;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => handleFilter(cat)}
+                    className={[
+                      "touch-target inline-flex flex-shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium transition-all",
+                      isActive
+                        ? "border-accent/60 bg-accent/15 text-accent-100"
+                        : "border-border bg-surface/60 text-zinc-300 hover:border-accent/40",
+                    ].join(" ")}
+                  >
+                    {cat}
+                    <span
+                      className={[
+                        "rounded-full px-1.5 py-0.5 font-mono text-[10px]",
+                        isActive
+                          ? "bg-accent/30 text-accent-50"
+                          : "bg-surface-2 text-zinc-500",
+                      ].join(" ")}
+                    >
+                      {counts[cat] ?? 0}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <p className="font-mono text-[10px] text-zinc-600 sm:hidden">
+            Swipe to see more filters →
+          </p>
+        </div>
       </div>
 
-      {/* Result count */}
-      <p
-        aria-live="polite"
-        className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500"
+      {/* FAQ accordion list */}
+      <div
+        id={RESULTS_ID}
+        className="scroll-mt-28 pt-4 sm:scroll-mt-32 sm:pt-5"
       >
-        Showing{" "}
-        <span className="text-zinc-200">{visible.length}</span> of{" "}
-        <span className="text-zinc-200">{projects.length}</span>{" "}
-        {visible.length === 1 ? "project" : "projects"}
-        {active !== ALL && (
-          <>
-            {" "}
-            in <span className="text-accent-300">{active}</span>
-          </>
-        )}
-      </p>
-
-      {/* Grid */}
-      <div className="relative mt-6 min-h-[200px]">
         {visible.length > 0 ? (
-          <motion.div
-            layout={prefersReduced ? false : true}
-            className="grid gap-5 md:grid-cols-2"
-          >
+          <ul className="faq-list" role="list" aria-label="Project case studies">
             <AnimatePresence mode="popLayout">
               {visible.map((p, i) => (
-                <motion.div
+                <motion.li
                   key={p.title}
-                  layout={prefersReduced ? false : "position"}
-                  initial={
-                    prefersReduced
-                      ? { opacity: 0 }
-                      : { opacity: 0, y: 16, scale: 0.97 }
-                  }
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={
-                    prefersReduced
-                      ? { opacity: 0 }
-                      : { opacity: 0, y: -10, scale: 0.97 }
-                  }
-                  transition={{
-                    duration: 0.45,
-                    delay: prefersReduced ? 0 : Math.min(i, 5) * 0.04,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
+                  layout={!prefersReduced}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.2, delay: Math.min(i, 6) * 0.03 }}
+                  role="listitem"
                 >
-                  <ProjectCard project={p} />
-                </motion.div>
+                  <ProjectCard
+                    project={p}
+                    variant="catalogue"
+                    index={i}
+                    isOpen={openTitle === p.title}
+                    onToggle={() => toggleProject(p.title)}
+                  />
+                </motion.li>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </ul>
         ) : (
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border/60 bg-surface/30 p-10 text-center"
-          >
-            <span className="grid h-12 w-12 place-items-center rounded-xl border border-border bg-surface text-zinc-500">
-              <Inbox className="h-5 w-5" aria-hidden />
-            </span>
-            <p className="mt-4 text-sm font-medium text-zinc-200">
-              No projects in this category yet.
-            </p>
-            <p className="mt-1 text-xs text-zinc-500">
-              Try another filter. More case studies are on the way.
-            </p>
+          <div className="flex flex-col items-center rounded-2xl border border-dashed border-border/60 bg-surface/30 px-6 py-12 text-center">
+            <Inbox className="h-8 w-8 text-zinc-500" aria-hidden />
+            <p className="mt-4 font-medium text-zinc-200">No projects found</p>
+            <p className="mt-1 text-sm text-zinc-500">Try a different filter.</p>
             <button
               type="button"
-              onClick={() => setActive(ALL)}
-              className="mt-4 text-xs font-semibold text-accent-300 hover:text-accent-200"
+              onClick={() => handleFilter(ALL)}
+              className="btn-primary touch-target mt-5 w-full max-w-xs justify-center sm:w-auto"
             >
-              ← Reset filter
+              Show all
             </button>
-          </motion.div>
+          </div>
         )}
       </div>
     </div>

@@ -3,6 +3,7 @@ import { siteUrl } from "./seo";
 
 const sectionAnchors = [
   "",
+  "#home",
   "#experience",
   "#projects",
   "#about",
