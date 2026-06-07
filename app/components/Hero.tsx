@@ -3,12 +3,23 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, FileText, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 import { personal } from "../data";
-import ResumeModal from "./ResumeModal";
+
+const RESUME_FILENAME = "Sabuj_Kumar_Modak_QA.pdf";
+
+function openResumeInNewTabAndDownload() {
+  window.open(personal.resume, "_blank", "noopener,noreferrer");
+
+  const link = document.createElement("a");
+  link.href = personal.resume;
+  link.download = RESUME_FILENAME;
+  link.rel = "noopener";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
 export default function Hero() {
-  const [resumeOpen, setResumeOpen] = useState(false);
   const prefersReduced = useReducedMotion();
 
   const fadeUp: Variants = {
@@ -124,15 +135,14 @@ export default function Hero() {
           </a>
           <button
             type="button"
-            onClick={() => setResumeOpen(true)}
+            onClick={openResumeInNewTabAndDownload}
             className="btn-secondary"
+            aria-label="View resume in new tab and download PDF"
           >
             <FileText className="h-4 w-4" />
             View Resume
           </button>
         </motion.div>
-
-        <ResumeModal open={resumeOpen} onClose={() => setResumeOpen(false)} />
 
         {/* Social row */}
         <motion.ul
