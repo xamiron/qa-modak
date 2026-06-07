@@ -93,14 +93,14 @@ export default function Contact() {
                 {contactItems.map((item) => {
                   const Inner = (
                     <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                      <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-brand">
                         <item.icon className="h-5 w-5" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-xs uppercase tracking-wider text-zinc-500">
+                        <p className="text-xs uppercase tracking-wider text-subtle">
                           {item.label}
                         </p>
-                        <p className="break-all text-xs font-medium text-zinc-200 sm:break-words sm:text-sm">
+                        <p className="break-all text-xs font-medium text-emphasis sm:break-words sm:text-sm">
                           {item.value}
                         </p>
                       </div>
@@ -131,7 +131,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub"
-                    className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-surface/60 text-zinc-300 transition-all hover:border-accent/50 hover:text-accent-300"
+                    className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-surface/60 text-body transition-all hover:border-accent/50 hover:text-accent-brand"
                   >
                     <Github className="h-5 w-5" />
                   </a>
@@ -140,7 +140,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
-                    className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-surface/60 text-zinc-300 transition-all hover:border-accent/50 hover:text-accent-300"
+                    className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-surface/60 text-body transition-all hover:border-accent/50 hover:text-accent-brand"
                   >
                     <Linkedin className="h-5 w-5" />
                   </a>

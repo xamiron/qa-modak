@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,11 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#070709",
-        surface: "#0d0e12",
-        "surface-2": "#13151b",
-        border: "#1f2229",
-        // Dark green / emerald accent: brand color system
+        background: "rgb(var(--color-background) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        "surface-2": "rgb(var(--color-surface-2) / <alpha-value>)",
+        border: "rgb(var(--color-border) / <alpha-value>)",
         accent: {
           DEFAULT: "#10b981",
           50: "#ecfdf5",
@@ -42,10 +42,10 @@ const config: Config = {
       },
       animation: {
         "fade-in-up": "fadeInUp 0.7s ease-out forwards",
-        "float": "float 6s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "shimmer": "shimmer 2.5s linear infinite",
-        "gradient": "gradient 8s linear infinite",
+        shimmer: "shimmer 2.5s linear infinite",
+        gradient: "gradient 8s linear infinite",
       },
       keyframes: {
         fadeInUp: {
@@ -68,6 +68,7 @@ const config: Config = {
       boxShadow: {
         "glow-accent": "0 0 30px -5px rgba(16, 185, 129, 0.4)",
         "glow-soft": "0 0 60px -15px rgba(16, 185, 129, 0.25)",
+        card: "0 1px 3px rgba(15, 23, 42, 0.06), 0 8px 24px -8px rgba(15, 23, 42, 0.08)",
       },
     },
   },

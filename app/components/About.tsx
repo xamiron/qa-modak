@@ -56,13 +56,13 @@ export default function About() {
           {highlights.map((h, i) => (
             <Reveal key={h.title} delay={i * 0.08}>
               <div className="card card-hover h-full p-4 sm:p-6">
-                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent-brand">
                   <h.icon className="h-5 w-5" />
                 </div>
-                <h3 className="mb-2 text-base font-semibold text-zinc-100">
+                <h3 className="mb-2 text-base font-semibold text-heading">
                   {h.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-zinc-400">
+                <p className="text-sm leading-relaxed text-muted">
                   {h.text}
                 </p>
               </div>

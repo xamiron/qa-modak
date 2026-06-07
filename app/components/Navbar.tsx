@@ -6,6 +6,7 @@ import { Menu, X, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "/journey", label: "Journey", section: "journey" },
@@ -77,20 +78,20 @@ export default function Navbar() {
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
+          ? "border-b border-border bg-surface/90 shadow-sm backdrop-blur-xl dark:bg-background/80 dark:shadow-none"
           : "bg-transparent"
       )}
     >
       <nav className="container-max section-padding flex h-16 items-center justify-between md:h-20">
         <Link
           href="/"
-          className="group flex items-center gap-2 font-semibold text-zinc-100"
+          className="group flex items-center gap-2 font-semibold text-heading"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-lg border border-accent/50 bg-accent/15 text-accent-300 backdrop-blur-md transition-all group-hover:bg-accent/25 group-hover:shadow-glow-accent">
+          <span className="grid h-9 w-9 place-items-center rounded-lg border border-accent/50 bg-accent/15 text-accent-brand backdrop-blur-md transition-all group-hover:bg-accent/25 group-hover:shadow-glow-accent">
             <ShieldCheck className="h-5 w-5" />
           </span>
           <span className="hidden font-mono text-sm tracking-wide sm:inline">
-            sabuj<span className="text-accent-400">.qa</span>
+            sabuj<span className="text-accent-brand">.qa</span>
           </span>
         </Link>
 
@@ -104,8 +105,8 @@ export default function Navbar() {
                   className={clsx(
                     "relative rounded-md px-3 py-2 text-sm font-medium transition-colors",
                     active
-                      ? "text-accent-300"
-                      : "text-zinc-400 hover:text-zinc-100"
+                      ? "text-accent-brand"
+                      : "text-muted hover:text-heading"
                   )}
                 >
                   {l.label}
@@ -121,21 +122,25 @@ export default function Navbar() {
           })}
         </ul>
 
-        <div className="hidden xl:block">
+        <div className="hidden items-center gap-2 xl:flex">
+          <ThemeToggle />
           <Link href="/#contact" className="btn-primary">
             Hire Me
           </Link>
         </div>
 
-        <button
-          type="button"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-zinc-700 bg-surface text-zinc-100 backdrop-blur-md transition-colors hover:border-accent/60 hover:text-accent-300 xl:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            className="theme-toggle"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -145,7 +150,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background/95 backdrop-blur-xl xl:hidden"
+            className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-surface/98 shadow-lg backdrop-blur-xl dark:bg-background/95 dark:shadow-none xl:hidden"
           >
             <ul className="section-padding py-4">
               {links.map((l) => (
@@ -153,7 +158,7 @@ export default function Navbar() {
                   <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block min-h-11 rounded-lg px-3 py-3 text-sm font-medium text-zinc-300 transition-colors hover:bg-surface hover:text-accent-300"
+                    className="block min-h-11 rounded-lg px-3 py-3 text-sm font-medium text-body transition-colors hover:bg-surface-2 hover:text-accent-brand dark:hover:bg-surface"
                   >
                     {l.label}
                   </Link>

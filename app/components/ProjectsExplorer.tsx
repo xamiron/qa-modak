@@ -55,16 +55,16 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-2.5">
-              <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300">
+              <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-brand">
                 <Filter className="h-4 w-4" aria-hidden />
               </span>
               <div className="min-w-0">
-                <p className="text-sm font-semibold text-zinc-200">
+                <p className="text-sm font-semibold text-emphasis">
                   Filter projects
                 </p>
                 <p
                   aria-live="polite"
-                  className="font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-500"
+                  className="font-mono text-[10px] uppercase tracking-[0.14em] text-subtle"
                 >
                   {visible.length} projects · tap to expand
                 </p>
@@ -76,7 +76,7 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
                 <button
                   type="button"
                   onClick={() => setOpenTitle(null)}
-                  className="touch-target hidden items-center gap-1 rounded-lg border border-border bg-surface/70 px-3 text-xs font-semibold text-zinc-400 hover:text-accent-300 sm:inline-flex"
+                  className="touch-target hidden items-center gap-1 rounded-lg border border-border bg-surface/70 px-3 text-xs font-semibold text-muted hover:text-accent-brand sm:inline-flex"
                   aria-label="Collapse all"
                 >
                   <ChevronsDownUp className="h-3.5 w-3.5" aria-hidden />
@@ -87,7 +87,7 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
                 <button
                   type="button"
                   onClick={() => handleFilter(ALL)}
-                  className="touch-target inline-flex items-center gap-1 rounded-lg border border-border bg-surface/70 px-3 text-xs font-semibold text-zinc-300 hover:text-accent-300"
+                  className="touch-target inline-flex items-center gap-1 rounded-lg border border-border bg-surface/70 px-3 text-xs font-semibold text-body hover:text-accent-brand"
                   aria-label="Clear filter"
                 >
                   <X className="h-3.5 w-3.5" aria-hidden />
@@ -120,7 +120,7 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
                       "touch-target inline-flex flex-shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium transition-all",
                       isActive
                         ? "border-accent/60 bg-accent/15 text-accent-100"
-                        : "border-border bg-surface/60 text-zinc-300 hover:border-accent/40",
+                        : "border-border bg-surface/60 text-body hover:border-accent/40",
                     ].join(" ")}
                   >
                     {cat}
@@ -129,7 +129,7 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
                         "rounded-full px-1.5 py-0.5 font-mono text-[10px]",
                         isActive
                           ? "bg-accent/30 text-accent-50"
-                          : "bg-surface-2 text-zinc-500",
+                          : "bg-surface-2 text-subtle",
                       ].join(" ")}
                     >
                       {counts[cat] ?? 0}
@@ -140,7 +140,7 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
             </div>
           </div>
 
-          <p className="font-mono text-[10px] text-zinc-600 sm:hidden">
+          <p className="font-mono text-[10px] text-faint sm:hidden">
             Swipe to see more filters →
           </p>
         </div>
@@ -177,9 +177,9 @@ export default function ProjectsExplorer({ projects, categories }: Props) {
           </ul>
         ) : (
           <div className="flex flex-col items-center rounded-2xl border border-dashed border-border/60 bg-surface/30 px-6 py-12 text-center">
-            <Inbox className="h-8 w-8 text-zinc-500" aria-hidden />
-            <p className="mt-4 font-medium text-zinc-200">No projects found</p>
-            <p className="mt-1 text-sm text-zinc-500">Try a different filter.</p>
+            <Inbox className="h-8 w-8 text-subtle" aria-hidden />
+            <p className="mt-4 font-medium text-emphasis">No projects found</p>
+            <p className="mt-1 text-sm text-subtle">Try a different filter.</p>
             <button
               type="button"
               onClick={() => handleFilter(ALL)}

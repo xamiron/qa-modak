@@ -88,7 +88,7 @@ export default function Loader() {
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-400 ring-1 ring-inset ring-amber-200/40 shadow-[0_0_6px_rgba(251,191,36,0.45)]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 ring-1 ring-inset ring-emerald-300/40 shadow-[0_0_6px_rgba(16,185,129,0.5)]" />
               </div>
-              <span className="flex-1 truncate text-center font-mono text-[10px] text-zinc-500 sm:text-[11px]">
+              <span className="flex-1 truncate text-center font-mono text-[10px] text-subtle sm:text-[11px]">
                 <span className="sm:hidden">init.sh</span>
                 <span className="hidden sm:inline">
                   initializing_qa_profile.sh
@@ -99,9 +99,9 @@ export default function Loader() {
 
             {/* Body */}
             <div className="space-y-4 px-4 py-4 font-mono text-[13px] sm:px-6 sm:py-6 sm:text-sm">
-              <p className="break-all leading-relaxed text-zinc-200">
-                <span className="text-accent-400">root@qa:~$</span>{" "}
-                <span className="text-zinc-100">
+              <p className="break-all leading-relaxed text-emphasis">
+                <span className="text-accent-brand">root@qa:~$</span>{" "}
+                <span className="text-heading">
                   ./initialize_portfolio.sh
                 </span>
                 <span
@@ -116,7 +116,7 @@ export default function Loader() {
                     Loading QA Profile
                     <span className="inline-block animate-pulse">...</span>
                   </span>
-                  <span className="flex-shrink-0 text-[11px] tabular-nums text-zinc-500">
+                  <span className="flex-shrink-0 text-[11px] tabular-nums text-subtle">
                     {Math.floor(progress)}%
                   </span>
                 </p>

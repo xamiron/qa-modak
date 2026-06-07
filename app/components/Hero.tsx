@@ -73,7 +73,7 @@ export default function Hero() {
         {/* Status pill */}
         <motion.div
           variants={fadeUp}
-          className="mb-5 inline-flex max-w-[calc(100vw-2.5rem)] items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1.5 text-[11px] font-medium tracking-wide text-zinc-300 backdrop-blur sm:max-w-none sm:gap-2.5 sm:px-4 sm:text-xs"
+          className="mb-5 inline-flex max-w-[calc(100vw-2.5rem)] items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1.5 text-[11px] font-medium tracking-wide text-body backdrop-blur sm:max-w-none sm:gap-2.5 sm:px-4 sm:text-xs"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-accent opacity-75" />
@@ -85,7 +85,7 @@ export default function Hero() {
         {/* Eyebrow */}
         <motion.p
           variants={fadeUp}
-          className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-400 sm:text-xs sm:tracking-[0.3em]"
+          className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-brand sm:text-xs sm:tracking-[0.3em]"
         >
           Software QA Engineer · Security Tester
         </motion.p>
@@ -93,7 +93,7 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           variants={fadeUp}
-          className="text-balance text-[1.75rem] font-bold leading-[1.15] tracking-tight text-zinc-50 sm:text-5xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
+          className="text-balance text-[1.75rem] font-bold leading-[1.15] tracking-tight text-heading sm:text-5xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
         >
           Sabuj Kumar{" "}
           <span className="gradient-text inline-block pb-1">Modak.</span>
@@ -102,12 +102,12 @@ export default function Hero() {
         {/* Description */}
         <motion.p
           variants={fadeUp}
-          className="mt-6 max-w-xl text-pretty text-[15px] leading-7 text-zinc-400 sm:mt-7 sm:text-base sm:leading-8 md:text-lg md:leading-relaxed"
+          className="mt-6 max-w-xl text-pretty text-[15px] leading-7 text-muted sm:mt-7 sm:text-base sm:leading-8 md:text-lg md:leading-relaxed"
         >
           Helping product teams ship reliable, secure software across{" "}
-          <span className="text-zinc-200">fintech</span>,{" "}
-          <span className="text-zinc-200">e-commerce</span>, and{" "}
-          <span className="text-zinc-200">EV mobility</span> through
+          <span className="text-emphasis">fintech</span>,{" "}
+          <span className="text-emphasis">e-commerce</span>, and{" "}
+          <span className="text-emphasis">EV mobility</span> through
           functional, API, security testing, and Selenium automation.
         </motion.p>
 
@@ -142,7 +142,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"
-              className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-400 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
+              className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface/70 text-muted transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-brand"
             >
               <Github className="h-4 w-4" />
             </a>
@@ -153,7 +153,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile"
-              className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-400 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
+              className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface/70 text-muted transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-brand"
             >
               <Linkedin className="h-4 w-4" />
             </a>
@@ -162,7 +162,7 @@ export default function Hero() {
             <a
               href={`mailto:${personal.email}`}
               aria-label={`Email ${personal.name}`}
-              className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-400 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
+              className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-surface/70 text-muted transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-brand"
             >
               <Mail className="h-4 w-4" />
             </a>

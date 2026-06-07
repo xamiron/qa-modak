@@ -152,7 +152,7 @@ export default function JourneyPage() {
                 >
                   An engineer who treats quality as a craft.
                 </h2>
-                <div className="mt-5 space-y-4 text-base leading-relaxed text-zinc-400 md:text-lg">
+                <div className="mt-5 space-y-4 text-base leading-relaxed text-muted md:text-lg">
                   <p>
                     My approach blends manual testing discipline with automation
                     engineering and an offensive security mindset. I think like
@@ -180,10 +180,10 @@ export default function JourneyPage() {
                         className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-accent/10 blur-2xl transition-opacity group-hover:opacity-100"
                       />
                       <div className="relative">
-                        <p className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+                        <p className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">
                           <CountUp value={s.value} />
                         </p>
-                        <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500 sm:text-xs">
+                        <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-subtle sm:text-xs">
                           {s.label}
                         </p>
                       </div>
@@ -215,8 +215,8 @@ export default function JourneyPage() {
               </h2>
               <p className="section-subtitle !max-w-3xl">
                 Confidence and momentum from{" "}
-                <span className="text-zinc-200">2019</span> to{" "}
-                <span className="text-zinc-200">today</span>. The peaks I
+                <span className="text-emphasis">2019</span> to{" "}
+                <span className="text-emphasis">today</span>. The peaks I
                 fought for and the dips that taught me the most.
               </p>
             </Reveal>
@@ -281,16 +281,16 @@ export default function JourneyPage() {
                           >
                             {number}
                           </span>
-                          <div className="grid h-12 w-12 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300 transition-transform group-hover:-translate-y-0.5 sm:h-14 sm:w-14">
+                          <div className="grid h-12 w-12 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-brand transition-transform group-hover:-translate-y-0.5 sm:h-14 sm:w-14">
                             <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                           </div>
                         </div>
                       </header>
 
-                      <h3 className="relative mt-5 text-lg font-semibold text-zinc-100 sm:text-xl">
+                      <h3 className="relative mt-5 text-lg font-semibold text-heading sm:text-xl">
                         {d.title}
                       </h3>
-                      <p className="relative mt-2 text-sm leading-relaxed text-zinc-400">
+                      <p className="relative mt-2 text-sm leading-relaxed text-muted">
                         {d.description}
                       </p>
 
@@ -299,7 +299,7 @@ export default function JourneyPage() {
                           {highlights.map((h) => (
                             <li
                               key={h}
-                              className="flex items-start gap-2 text-xs text-zinc-300 sm:text-sm"
+                              className="flex items-start gap-2 text-xs text-body sm:text-sm"
                             >
                               <span
                                 aria-hidden
@@ -351,22 +351,22 @@ export default function JourneyPage() {
                     <Reveal delay={i * 0.06}>
                       <span
                         aria-hidden
-                        className="absolute -left-[14px] top-1 grid h-7 w-7 place-items-center rounded-full border border-accent/40 bg-background text-accent-300 shadow-glow-soft sm:-left-[18px] sm:h-9 sm:w-9"
+                        className="absolute -left-[14px] top-1 grid h-7 w-7 place-items-center rounded-full border border-accent/40 bg-background text-accent-brand shadow-glow-soft sm:-left-[18px] sm:h-9 sm:w-9"
                       >
                         <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </span>
 
                       <div className="card card-hover p-5 sm:p-6">
-                        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-400">
+                        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-brand">
                           {m.year}
                         </p>
-                        <h3 className="mt-1 text-lg font-semibold text-zinc-100 sm:text-xl">
+                        <h3 className="mt-1 text-lg font-semibold text-heading sm:text-xl">
                           {m.title}
                         </h3>
-                        <p className="mt-0.5 font-mono text-xs text-zinc-500">
+                        <p className="mt-0.5 font-mono text-xs text-subtle">
                           {m.subtitle}
                         </p>
-                        <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-[15px]">
+                        <p className="mt-3 text-sm leading-relaxed text-muted sm:text-[15px]">
                           {m.description}
                         </p>
                       </div>
@@ -390,13 +390,13 @@ export default function JourneyPage() {
                   <div className="absolute left-1/2 top-1/2 h-72 w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-radial-fade blur-3xl" />
                 </div>
 
-                <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent-400">
+                <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent-brand">
                   Next chapter?
                 </p>
-                <h2 className="mt-3 text-balance text-2xl font-bold text-zinc-100 sm:text-3xl md:text-4xl">
+                <h2 className="mt-3 text-balance text-2xl font-bold text-heading sm:text-3xl md:text-4xl">
                   Let&apos;s build something worth shipping.
                 </h2>
-                <p className="mx-auto mt-3 max-w-xl text-pretty text-sm leading-relaxed text-zinc-400 sm:text-base">
+                <p className="mx-auto mt-3 max-w-xl text-pretty text-sm leading-relaxed text-muted sm:text-base">
                   Open to QA, automation, and security roles where quality is
                   treated as a first-class concern.
                 </p>

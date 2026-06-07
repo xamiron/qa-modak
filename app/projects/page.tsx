@@ -78,14 +78,14 @@ export default function ProjectsPage() {
                       key={s.label}
                       className="flex flex-col items-center justify-center gap-1 rounded-xl bg-surface/60 px-2 py-3 text-center sm:flex-row sm:gap-2.5 sm:px-4 sm:py-4 sm:text-left"
                     >
-                      <span className="hidden h-9 w-9 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300 sm:grid">
+                      <span className="hidden h-9 w-9 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-brand sm:grid">
                         <Icon className="h-4 w-4" />
                       </span>
                       <div>
-                        <p className="text-lg font-bold leading-none text-zinc-100 sm:text-2xl">
+                        <p className="text-lg font-bold leading-none text-heading sm:text-2xl">
                           {s.value}
                         </p>
-                        <p className="mt-1 font-mono text-[9px] leading-tight uppercase tracking-[0.15em] text-zinc-500 sm:text-[11px] sm:tracking-[0.18em]">
+                        <p className="mt-1 font-mono text-[9px] leading-tight uppercase tracking-[0.15em] text-subtle sm:text-[11px] sm:tracking-[0.18em]">
                           {s.label}
                         </p>
                       </div>
@@ -128,13 +128,13 @@ export default function ProjectsPage() {
                   <div className="absolute left-1/2 top-1/2 h-72 w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-radial-fade blur-3xl" />
                 </div>
 
-                <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent-400">
+                <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent-brand">
                   {projects.length} projects shipped &amp; tested
                 </p>
-                <h2 className="mt-3 text-balance text-2xl font-bold text-zinc-100 sm:text-3xl md:text-4xl">
+                <h2 className="mt-3 text-balance text-2xl font-bold text-heading sm:text-3xl md:text-4xl">
                   Have a project in mind? Let&apos;s talk.
                 </h2>
-                <p className="mx-auto mt-3 max-w-xl text-pretty text-sm leading-relaxed text-zinc-400 sm:text-base">
+                <p className="mx-auto mt-3 max-w-xl text-pretty text-sm leading-relaxed text-muted sm:text-base">
                   Open to QA, automation, and security roles where quality is
                   treated as a first-class concern.
                 </p>

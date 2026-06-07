@@ -40,32 +40,32 @@ export default function Experience() {
             {experience.map((exp, i) => (
               <Reveal key={exp.company} delay={i * 0.1}>
                 <div className="relative md:pl-16">
-                  <div className="absolute left-0 top-1 hidden h-8 w-8 items-center justify-center rounded-full border border-accent/40 bg-surface text-accent-300 shadow-glow-soft md:flex">
+                  <div className="absolute left-0 top-1 hidden h-8 w-8 items-center justify-center rounded-full border border-accent/40 bg-surface text-accent-brand shadow-glow-soft md:flex">
                     <Briefcase aria-hidden className="h-4 w-4" />
                   </div>
 
                   <article className="card card-hover p-4 sm:p-6 md:p-7">
                     <header className="mb-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
                       <div>
-                        <h3 className="text-balance text-lg font-semibold text-zinc-100 sm:text-xl">
+                        <h3 className="text-balance text-lg font-semibold text-heading sm:text-xl">
                           {exp.role}
                         </h3>
-                        <p className="mt-1 text-sm font-medium text-accent-300">
+                        <p className="mt-1 text-sm font-medium text-accent-brand">
                           {exp.company}
                         </p>
                       </div>
                       <div className="sm:text-right">
-                        <p className="font-mono text-xs text-zinc-400">
+                        <p className="font-mono text-xs text-muted">
                           {exp.period}
                         </p>
-                        <p className="mt-1 inline-flex items-center gap-1 text-xs text-zinc-500">
+                        <p className="mt-1 inline-flex items-center gap-1 text-xs text-subtle">
                           <MapPin aria-hidden className="h-3 w-3" />
                           {exp.location}
                         </p>
                       </div>
                     </header>
 
-                    <ul className="space-y-2 text-sm leading-relaxed text-zinc-300">
+                    <ul className="space-y-2 text-sm leading-relaxed text-body">
                       {exp.bullets.map((b) => (
                         <li key={b} className="flex gap-3">
                           <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent/70" />

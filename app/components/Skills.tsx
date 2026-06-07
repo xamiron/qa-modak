@@ -45,21 +45,21 @@ export default function Skills() {
 
                   <header className="mb-4 flex items-start justify-between gap-3 border-b border-border/40 pb-4 sm:mb-5">
                     <div className="flex min-w-0 items-center gap-3">
-                      <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300 transition-all group-hover:-translate-y-0.5 group-hover:bg-accent/20 group-hover:shadow-glow-soft sm:h-11 sm:w-11">
+                      <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-brand transition-all group-hover:-translate-y-0.5 group-hover:bg-accent/20 group-hover:shadow-glow-soft sm:h-11 sm:w-11">
                         <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-balance text-sm font-semibold leading-snug text-zinc-100 sm:text-lg">
+                        <h3 className="text-balance text-sm font-semibold leading-snug text-heading sm:text-lg">
                           {group.title}
                         </h3>
-                        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-zinc-500">
+                        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-subtle">
                           {group.items.length} skills
                         </p>
                       </div>
                     </div>
                     <span
                       aria-hidden
-                      className="rounded-lg border border-border/60 bg-surface/50 px-2 py-1 font-mono text-[11px] tabular-nums text-zinc-500"
+                      className="rounded-lg border border-border/60 bg-surface/50 px-2 py-1 font-mono text-[11px] tabular-nums text-subtle"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>

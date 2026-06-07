@@ -57,14 +57,14 @@ export default function Domains() {
                     className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
                   />
 
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300 transition-transform group-hover:-translate-y-0.5">
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent-brand transition-transform group-hover:-translate-y-0.5">
                     <Icon className="h-5 w-5" />
                   </div>
 
-                  <h3 className="mb-2 text-lg font-semibold text-zinc-100">
+                  <h3 className="mb-2 text-lg font-semibold text-heading">
                     {d.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-zinc-400">
+                  <p className="text-sm leading-relaxed text-muted">
                     {d.description}
                   </p>
                 </div>

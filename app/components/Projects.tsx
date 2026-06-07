@@ -74,14 +74,14 @@ export default function Projects() {
                   key={s.label}
                   className="flex flex-col items-center justify-center gap-1 rounded-xl bg-surface/60 px-2 py-3 text-center sm:flex-row sm:gap-2.5 sm:px-4 sm:py-4 sm:text-left"
                 >
-                  <span className="hidden h-9 w-9 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300 sm:grid">
+                  <span className="hidden h-9 w-9 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-brand sm:grid">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div>
-                    <p className="text-lg font-bold leading-none text-zinc-100 sm:text-2xl">
+                    <p className="text-lg font-bold leading-none text-heading sm:text-2xl">
                       {s.value}
                     </p>
-                    <p className="mt-1 font-mono text-[8px] leading-tight uppercase tracking-[0.1em] text-zinc-500 sm:text-[11px] sm:tracking-[0.18em]">
+                    <p className="mt-1 font-mono text-[8px] leading-tight uppercase tracking-[0.1em] text-subtle sm:text-[11px] sm:tracking-[0.18em]">
                       {s.label}
                     </p>
                   </div>
@@ -114,26 +114,26 @@ export default function Projects() {
             <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-start md:gap-8">
               <div className="min-w-0">
                 {/* Eyebrow badge */}
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-brand">
                   <Sparkles aria-hidden className="h-3 w-3" />
                   Featured
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-300 transition-transform group-hover:-translate-y-0.5 sm:h-12 sm:w-12">
+                  <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-accent-brand transition-transform group-hover:-translate-y-0.5 sm:h-12 sm:w-12">
                     <FolderGit2 className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-balance text-base font-semibold leading-snug text-zinc-100 sm:text-2xl md:text-3xl">
+                    <h3 className="text-balance text-base font-semibold leading-snug text-heading sm:text-2xl md:text-3xl">
                       {featured.title}
                     </h3>
-                    <p className="mt-1 font-mono text-xs text-zinc-500">
+                    <p className="mt-1 font-mono text-xs text-subtle">
                       {featured.org}
                     </p>
                   </div>
                 </div>
 
-                <p className="mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-300 sm:text-base sm:leading-[1.7]">
+                <p className="mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-body sm:text-base sm:leading-[1.7]">
                   <RichText text={featured.description} />
                 </p>
 
@@ -141,13 +141,13 @@ export default function Projects() {
                   <div className="mt-5 flex items-start gap-3 rounded-xl border border-accent/30 bg-accent/[0.08] p-3 sm:p-4">
                     <Sparkles
                       aria-hidden
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-300"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-brand"
                     />
-                    <p className="text-sm leading-relaxed text-zinc-200">
-                      <span className="font-semibold uppercase tracking-wider text-accent-300">
+                    <p className="text-sm leading-relaxed text-emphasis">
+                      <span className="font-semibold uppercase tracking-wider text-accent-brand">
                         Impact
                       </span>
-                      <span className="mx-2 text-zinc-600">·</span>
+                      <span className="mx-2 text-faint">·</span>
                       {featured.keyTakeaway}
                     </p>
                   </div>
@@ -162,7 +162,7 @@ export default function Projects() {
                 </div>
 
                 {featuredIsLink && (
-                  <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-300 transition-all group-hover:gap-2.5">
+                  <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-brand transition-all group-hover:gap-2.5">
                     Visit live site
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
@@ -175,7 +175,7 @@ export default function Projects() {
                 className="relative hidden md:block"
               >
                 <div className="grid h-32 w-32 place-items-center rounded-2xl border border-accent/30 bg-accent/5 backdrop-blur-sm transition-all group-hover:border-accent/50 group-hover:bg-accent/10 lg:h-40 lg:w-40">
-                  <FolderGit2 className="h-14 w-14 text-accent-300/80 lg:h-16 lg:w-16" />
+                  <FolderGit2 className="h-14 w-14 text-accent-brand/80 lg:h-16 lg:w-16" />
                 </div>
                 <div
                   aria-hidden
@@ -215,7 +215,7 @@ export default function Projects() {
                 View All Projects
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-subtle">
                 {projects.length - HOME_PROJECT_LIMIT}+ more case studies
               </p>
             </div>

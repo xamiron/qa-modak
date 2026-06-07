@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Loader from "./components/Loader";
+import ThemeProvider from "./components/ThemeProvider";
 import "./globals.css";
 import { pageSeo, siteConfig, siteUrl } from "./seo";
 
@@ -66,9 +67,9 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#070709" },
-    { media: "(prefers-color-scheme: light)", color: "#070709" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
   ],
-  colorScheme: "dark",
+  colorScheme: "light dark",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -142,7 +143,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <meta name="author" content={siteConfig.name} />
         <meta name="geo.region" content="BD-13" />
@@ -167,13 +172,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdProfile) }}
         />
       </head>
-      <body className="bg-background text-zinc-200 antialiased">
-        <a href="#main" className="skip-link">
-          Skip to main content
-        </a>
-        <Loader />
-        {children}
-        <Analytics />
+      <body className="bg-background text-body antialiased">
+        <ThemeProvider>
+          <a href="#main" className="skip-link">
+            Skip to main content
+          </a>
+          <Loader />
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

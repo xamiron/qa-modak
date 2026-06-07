@@ -22,7 +22,7 @@ export default function RichText({ text, className }: Props) {
           return (
             <strong
               key={i}
-              className="font-semibold text-zinc-100"
+              className="font-semibold text-heading"
             >
               {part.slice(2, -2)}
             </strong>

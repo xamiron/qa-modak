@@ -30,14 +30,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-lg border border-accent/40 bg-accent/15 text-accent-300">
+              <span className="grid h-8 w-8 place-items-center rounded-lg border border-accent/40 bg-accent/15 text-accent-brand">
                 <ShieldCheck className="h-4 w-4" />
               </span>
-              <span className="font-mono text-sm tracking-wide text-zinc-100">
-                sabuj<span className="text-accent-400">.qa</span>
+              <span className="font-mono text-sm tracking-wide text-heading">
+                sabuj<span className="text-accent-brand">.qa</span>
               </span>
             </div>
-            <p className="max-w-xs text-sm leading-relaxed text-zinc-400">
+            <p className="max-w-xs text-sm leading-relaxed text-muted">
               QA Engineer focused on quality, security, and automation. Open to
               new opportunities.
             </p>
@@ -45,15 +45,15 @@ export default function Footer() {
 
           {/* Nav */}
           <nav aria-label="Footer navigation">
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.25em] text-subtle">
               Navigate
             </p>
-            <ul className="grid grid-cols-2 gap-y-2 text-sm text-zinc-400">
+            <ul className="grid grid-cols-2 gap-y-2 text-sm text-muted">
               {navLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="inline-flex items-center transition-colors hover:text-accent-300"
+                    className="inline-flex items-center transition-colors hover:text-accent-brand"
                   >
                     {l.label}
                   </Link>
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.25em] text-subtle">
               Connect
             </p>
             <ul className="flex items-center gap-2">
@@ -74,7 +74,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-300 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
+                  className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface/70 text-body transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-brand"
                 >
                   <Github className="h-4 w-4" />
                 </a>
@@ -85,7 +85,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-300 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
+                  className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface/70 text-body transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-brand"
                 >
                   <Linkedin className="h-4 w-4" />
                 </a>
@@ -94,7 +94,7 @@ export default function Footer() {
                 <a
                   href={`mailto:${personal.email}`}
                   aria-label="Email"
-                  className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface/70 text-zinc-300 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-300"
+                  className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface/70 text-body transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent-brand"
                 >
                   <Mail className="h-4 w-4" />
                 </a>
@@ -102,16 +102,16 @@ export default function Footer() {
             </ul>
             <a
               href={`mailto:${personal.email}`}
-              className="mt-3 inline-block break-all text-sm text-zinc-400 transition-colors hover:text-accent-300 sm:break-normal"
+              className="mt-3 inline-block break-all text-sm text-muted transition-colors hover:text-accent-brand sm:break-normal"
             >
               {personal.email}
             </a>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border/50 pt-6 text-center text-xs text-zinc-400">
+        <div className="mt-8 border-t border-border/50 pt-6 text-center text-xs text-muted">
           <p>
-            © {year} <span className="text-zinc-200">{personal.name}</span>.
+            © {year} <span className="text-emphasis">{personal.name}</span>.
             All rights reserved.
           </p>
         </div>

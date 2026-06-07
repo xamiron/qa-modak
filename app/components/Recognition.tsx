@@ -33,10 +33,10 @@ export default function Recognition() {
           <Reveal>
             <div className="card card-hover h-full p-4 sm:p-6">
               <div className="mb-5 flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-brand">
                   <BadgeCheck className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-semibold text-zinc-100">
+                <h3 className="text-lg font-semibold text-heading">
                   Certifications
                 </h3>
               </div>
@@ -46,10 +46,10 @@ export default function Recognition() {
                     key={c.name}
                     className="card-inner flex flex-col gap-0.5 p-3"
                   >
-                    <span className="text-sm font-medium text-zinc-200">
+                    <span className="text-sm font-medium text-emphasis">
                       {c.name}
                     </span>
-                    <span className="text-xs text-zinc-400">{c.issuer}</span>
+                    <span className="text-xs text-muted">{c.issuer}</span>
                   </li>
                 ))}
               </ul>
@@ -59,10 +59,10 @@ export default function Recognition() {
           <Reveal delay={0.1}>
             <div className="card card-hover h-full p-4 sm:p-6">
               <div className="mb-5 flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-brand">
                   <Trophy className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-semibold text-zinc-100">
+                <h3 className="text-lg font-semibold text-heading">
                   Achievements
                 </h3>
               </div>
@@ -70,12 +70,12 @@ export default function Recognition() {
                 {achievements.map((a) => (
                   <li key={a.title} className="card-inner p-3">
                     <div className="flex items-start gap-2">
-                      <Award className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-300" />
+                      <Award className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-brand" />
                       <div>
-                        <p className="text-sm font-medium text-zinc-200">
+                        <p className="text-sm font-medium text-emphasis">
                           {a.title}
                         </p>
-                        <p className="mt-0.5 text-xs text-zinc-400">
+                        <p className="mt-0.5 text-xs text-muted">
                           {a.venue} · {a.year}
                         </p>
                       </div>
@@ -89,26 +89,26 @@ export default function Recognition() {
           <Reveal delay={0.2}>
             <div className="card card-hover h-full p-4 sm:p-6">
               <div className="mb-5 flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-300">
+                <div className="grid h-11 w-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 text-accent-brand">
                   <BookOpen className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-semibold text-zinc-100">
+                <h3 className="text-lg font-semibold text-heading">
                   Publication
                 </h3>
               </div>
               <div className="card-inner p-3">
-                <p className="text-sm font-medium leading-relaxed text-zinc-200">
+                <p className="text-sm font-medium leading-relaxed text-emphasis">
                   {publication.title}
                 </p>
 
                 {publication.abstract && (
-                  <p className="mt-2 text-xs leading-relaxed text-zinc-400">
+                  <p className="mt-2 text-xs leading-relaxed text-muted">
                     {publication.abstract}
                   </p>
                 )}
 
                 <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-[11px] font-medium text-accent-300">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-[11px] font-medium text-accent-brand">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
                     {publication.status}
                   </span>
@@ -118,7 +118,7 @@ export default function Recognition() {
                       href={publication.abstractLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 rounded-full border border-border bg-surface/70 px-2.5 py-0.5 text-[11px] font-semibold text-zinc-200 transition-colors hover:border-accent/50 hover:text-accent-300"
+                      className="inline-flex items-center gap-1 rounded-full border border-border bg-surface/70 px-2.5 py-0.5 text-[11px] font-semibold text-emphasis transition-colors hover:border-accent/50 hover:text-accent-brand"
                       aria-label="Read abstract of upcoming publication"
                     >
                       Read Abstract

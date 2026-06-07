@@ -167,20 +167,20 @@ export default function JourneyChart() {
       <header className="flex flex-col gap-4 sm:gap-5">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div className="min-w-0">
-            <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 sm:text-[11px]">
+            <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-subtle sm:text-[11px]">
               <span aria-hidden className="h-px w-6 bg-accent" />
               Confidence &amp; Momentum
             </p>
-            <h3 className="mt-2 text-base font-semibold leading-snug text-zinc-100 sm:text-lg md:text-xl">
+            <h3 className="mt-2 text-base font-semibold leading-snug text-heading sm:text-lg md:text-xl">
               The arc from{" "}
-              <span className="font-mono text-accent-300">{xMin}</span>
+              <span className="font-mono text-accent-brand">{xMin}</span>
               {" → "}
-              <span className="font-mono text-accent-300">today</span>
+              <span className="font-mono text-accent-brand">today</span>
             </h3>
           </div>
 
           {/* Legend */}
-          <ul className="flex flex-wrap items-center gap-1.5 text-[11px] text-zinc-400 sm:gap-2 sm:text-xs">
+          <ul className="flex flex-wrap items-center gap-1.5 text-[11px] text-muted sm:gap-2 sm:text-xs">
             <li className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/5 px-2.5 py-1">
               <span className="h-2 w-2 rounded-full bg-accent shadow-glow-accent" />
               Peak
@@ -189,8 +189,8 @@ export default function JourneyChart() {
               <span className="h-2 w-2 rounded-full bg-rose-400" />
               Dip
             </li>
-            <li className="inline-flex items-center gap-1.5 rounded-full border border-zinc-700 bg-surface-2/50 px-2.5 py-1">
-              <span className="h-2 w-2 rounded-full bg-zinc-500" />
+            <li className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-2/50 px-2.5 py-1">
+              <span className="h-2 w-2 rounded-full bg-slate-300 dark:bg-zinc-600" />
               Neutral
             </li>
             <li className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-accent-200">
@@ -206,47 +206,47 @@ export default function JourneyChart() {
         {/* Quick stats strip */}
         <dl className="grid grid-cols-2 gap-2 rounded-xl border border-border/60 bg-surface/40 p-2 sm:grid-cols-4 sm:gap-3 sm:p-3">
           <div className="min-w-0 flex flex-col gap-0.5 rounded-lg bg-surface/60 px-3 py-2.5">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">
               Highest Point
             </dt>
             <dd className="truncate text-xs font-semibold text-accent-200 sm:text-sm">
               {summary.peak.label}
             </dd>
-            <p className="font-mono text-[10px] text-zinc-500">
+            <p className="font-mono text-[10px] text-subtle">
               {summary.peak.year}
             </p>
           </div>
           <div className="min-w-0 flex flex-col gap-0.5 rounded-lg bg-surface/60 px-3 py-2.5">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">
               Lowest Point
             </dt>
             <dd className="truncate text-xs font-semibold text-rose-300 sm:text-sm">
               {summary.low.label}
             </dd>
-            <p className="font-mono text-[10px] text-zinc-500">
+            <p className="font-mono text-[10px] text-subtle">
               {summary.low.year}
             </p>
           </div>
           <div className="min-w-0 flex flex-col gap-0.5 rounded-lg bg-surface/60 px-3 py-2.5">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">
               Years Tracked
             </dt>
-            <dd className="text-xs font-semibold text-zinc-200 sm:text-sm">
+            <dd className="text-xs font-semibold text-emphasis sm:text-sm">
               {xMax - xMin + 1} years
             </dd>
-            <p className="font-mono text-[10px] text-zinc-500">
+            <p className="font-mono text-[10px] text-subtle">
               {xMin} – {xMax}
             </p>
           </div>
           <div className="min-w-0 flex flex-col gap-0.5 rounded-lg bg-surface/60 px-3 py-2.5">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">
               Net Growth
             </dt>
-            <dd className="inline-flex items-center gap-1 text-xs font-semibold text-accent-300 sm:text-sm">
+            <dd className="inline-flex items-center gap-1 text-xs font-semibold text-accent-brand sm:text-sm">
               <ArrowUpRight className="h-3.5 w-3.5" />
               +{summary.delta.toFixed(1)} pts
             </dd>
-            <p className="font-mono text-[10px] text-zinc-500">
+            <p className="font-mono text-[10px] text-subtle">
               {summary.first.level} → {summary.last.level}
             </p>
           </div>
@@ -334,7 +334,7 @@ export default function JourneyChart() {
           </g>
 
           {/* Subtle grid lines */}
-          <g stroke="currentColor" className="text-zinc-800">
+          <g stroke="currentColor" className="text-chart-grid">
             {[0, 5, 10].map((g) => (
               <line
                 key={g}
@@ -363,7 +363,7 @@ export default function JourneyChart() {
             <text
               x={PAD_L + 10}
               y={yScale(5) + 4}
-              className="fill-zinc-500"
+              className="fill-slate-400 dark:fill-zinc-500"
               opacity={0.5}
               letterSpacing="0.18em"
             >
@@ -381,7 +381,7 @@ export default function JourneyChart() {
           </g>
 
           {/* Y-axis range markers */}
-          <g className="fill-zinc-500 font-mono" fontSize="13">
+          <g className="fill-slate-400 font-mono dark:fill-zinc-500" fontSize="13">
             {[
               { v: 10, label: "10" },
               { v: 5, label: "5" },
@@ -404,7 +404,7 @@ export default function JourneyChart() {
                 className={
                   i === TODAY_INDEX
                     ? "fill-accent-300 font-semibold"
-                    : "fill-zinc-500"
+                    : "fill-slate-400 dark:fill-zinc-500"
                 }
               >
                 {d.year}
@@ -548,7 +548,7 @@ export default function JourneyChart() {
                       : p.mood === "down"
                       ? "fill-rose-300"
                       : p.mood === "neutral"
-                      ? "fill-zinc-400"
+                      ? "fill-slate-500 dark:fill-zinc-400"
                       : "fill-accent-300"
                   }
                   fontSize="14"
@@ -599,7 +599,7 @@ export default function JourneyChart() {
             d.mood === "down"
               ? "border-rose-400/25"
               : d.mood === "neutral"
-              ? "border-zinc-700/70"
+              ? "border-border/70"
               : "border-accent/25";
           const moodBg =
             d.mood === "down"
@@ -611,8 +611,8 @@ export default function JourneyChart() {
             d.mood === "down"
               ? "border-rose-400/30 bg-rose-400/10 text-rose-300"
               : d.mood === "neutral"
-              ? "border-zinc-700 bg-surface-2 text-zinc-300"
-              : "border-accent/30 bg-accent/10 text-accent-300";
+              ? "border-border bg-surface-2 text-body"
+              : "border-accent/30 bg-accent/10 text-accent-brand";
 
           return (
             <motion.li
@@ -640,7 +640,7 @@ export default function JourneyChart() {
                   <MoodIcon mood={d.mood} className="h-4 w-4" />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+                  <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-subtle">
                     {d.year}
                     {isToday && (
                       <span className="inline-flex items-center gap-1 rounded-full border border-accent/40 bg-accent/10 px-1.5 py-0.5 text-[9px] font-semibold tracking-wider text-accent-200">
@@ -648,12 +648,12 @@ export default function JourneyChart() {
                       </span>
                     )}
                   </p>
-                  <p className="mt-0.5 text-sm font-semibold leading-tight text-zinc-100">
+                  <p className="mt-0.5 text-sm font-semibold leading-tight text-heading">
                     {d.label}
                   </p>
                 </div>
               </div>
-              <p className="text-[12px] leading-relaxed text-zinc-400 sm:text-[13px]">
+              <p className="text-[12px] leading-relaxed text-muted sm:text-[13px]">
                 {d.detail}
               </p>
             </motion.li>

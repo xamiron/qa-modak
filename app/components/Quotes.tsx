@@ -54,7 +54,7 @@ export default function Quotes() {
           <div className="relative mt-6 min-h-[200px] sm:mt-8 sm:min-h-[240px] md:min-h-[220px]">
             <Quote
               aria-hidden
-              className="mx-auto h-10 w-10 text-accent-400/60 md:h-12 md:w-12"
+              className="mx-auto h-10 w-10 text-accent-brand/60 md:h-12 md:w-12"
             />
 
             <AnimatePresence mode="wait">
@@ -66,17 +66,17 @@ export default function Quotes() {
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 className="mx-auto mt-6"
               >
-                <p className="text-balance px-1 text-lg font-medium leading-relaxed text-zinc-100 sm:px-0 sm:text-2xl md:text-3xl md:leading-snug">
-                  <span aria-hidden className="text-accent-400">&ldquo;</span>
+                <p className="text-balance px-1 text-lg font-medium leading-relaxed text-heading sm:px-0 sm:text-2xl md:text-3xl md:leading-snug">
+                  <span aria-hidden className="text-accent-brand">&ldquo;</span>
                   {current.text}
-                  <span aria-hidden className="text-accent-400">&rdquo;</span>
+                  <span aria-hidden className="text-accent-brand">&rdquo;</span>
                 </p>
 
                 <footer className="mt-6 flex flex-col items-center gap-0.5">
-                  <cite className="not-italic text-sm font-semibold tracking-wide text-accent-300">
+                  <cite className="not-italic text-sm font-semibold tracking-wide text-accent-brand">
                     {current.author}
                   </cite>
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-subtle">
                     {current.role}
                   </span>
                 </footer>
@@ -106,7 +106,7 @@ export default function Quotes() {
                       "block h-1.5 rounded-full transition-all duration-500",
                       active
                         ? "w-8 bg-accent shadow-glow-accent"
-                        : "w-1.5 bg-zinc-700 group-hover:bg-zinc-500",
+                        : "w-1.5 bg-slate-300 group-hover:bg-slate-400 dark:bg-zinc-700 dark:group-hover:bg-zinc-500",
                     ].join(" ")}
                   />
                 </button>
